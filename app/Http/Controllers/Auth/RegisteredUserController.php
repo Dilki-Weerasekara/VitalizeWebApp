@@ -70,6 +70,36 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        //email verification notification
+        if($request->email){
+            auth()->user()->sendEmailVerificationNotification();
+            return redirect(RouteServiceProvider::VERIFY)->with('status', 'verification-link-sent');
+
+        }else{
+
+            //mobile number verification
+            $user = User::find(auth()->id());
+            $otp=random_int(100000,999999);
+            $user->mobile_verification_code=$otp;
+            $user->save();
+
+
+            $sid = env("TWILIO_SID");
+            $token = env("TWILIO_TOKEN");
+            $client = new Client($sid, $token);
+
+            // Create the client message template
+            $client->messages->create(
+                // message sends to this phone number
+                $user->mobile,
+                [
+                    "from" => env("TWILIO_Number"),
+                    // customize message text body from vitalize
+                    'body' => 'Thanks for registering on '. config("app.name"). "\n your OTP is: ".$otp
+                ]
+            );
+
+            return redirect(RouteServiceProvider::VERIFY_PHONE)->with('status', 'verification-link-sent');
+        }
     }
 }
