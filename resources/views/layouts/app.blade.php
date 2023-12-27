@@ -21,9 +21,11 @@ $icons = new \Feather\IconManager();
     <link rel="stylesheet" href=" {{ asset('css/lightbox.css') }}">
     <link rel="stylesheet" href="{{ asset('css/video-player.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    {{-- emoji Stylesheet --}}
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
 
     @livewireStyles
-    
+
 </head>
 
 <body class="color-theme-blue mont-font">
