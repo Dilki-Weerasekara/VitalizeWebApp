@@ -79,7 +79,7 @@ https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.min.css
 
 
     <a href="#" class="p-0 ms-3 menu-icon"><img
-            src="{{ auth()->user()->profile ? asset('storage') . '/' . auth()->user()->profile : 'images/profile-4.png' }}"
+            src="{{ auth()->user()->profile ? asset('storage') . '/' . auth()->user()->profile : 'images/user-8.png' }}"
             alt="user" class="w40 mt--1"></a>
 
 </div>
