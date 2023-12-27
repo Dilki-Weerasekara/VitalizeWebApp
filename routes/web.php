@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Home;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware(['auth', 'verified','VerifiedUser']);     //dont allow users to see anything until they are authorize and verify the email or mobile verification after login.
+Route::get('/', Home::class)->middleware(['auth', 'verified','VerifiedUser']);     //dont allow users to see anything until they are authorize and verify the email or mobile verification after login.
 
 Route::get('/dashboard', function () {
     return view('dashboard');
