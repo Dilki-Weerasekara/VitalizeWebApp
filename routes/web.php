@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware(['auth', 'verified']);     //dont allow users to see anything until they are authorize and verify the email.
+})->middleware(['auth', 'verified','VerifiedUser']);     //dont allow users to see anything until they are authorize and verify the email or mobile verification after login.
 
 Route::get('/dashboard', function () {
     return view('dashboard');

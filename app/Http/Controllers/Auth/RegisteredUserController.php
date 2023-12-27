@@ -79,11 +79,11 @@ class RegisteredUserController extends Controller
 
             //mobile number verification
             $user = User::find(auth()->id());
-            $otp=random_int(100000,999999);
+            $otp=random_int(100000,999999);     //generate random OTP number
             $user->mobile_verification_code=$otp;
             $user->save();
 
-
+            //connect with TWILIO server
             $sid = env("TWILIO_SID");
             $token = env("TWILIO_TOKEN");
             $client = new Client($sid, $token);
