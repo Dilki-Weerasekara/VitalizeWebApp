@@ -16,15 +16,63 @@
             cols="30" rows="10" placeholder="What's on your mind?"></textarea>
     </div>
 
-    <div class="card-body d-flex p-0 mt-0">
-        <a href="#" class="d-flex align-items-center font-xssss fw-600 ls-1 text-grey-700 text-dark pe-4"><i class="font-md text-danger me-2" style="margin-top: -10px">{!! $icons->getIcon('video') !!}</i><span class="d-none-xs">Video</span></a>
-        <a href="#" class="d-flex align-items-center font-xssss fw-600 ls-1 text-grey-700 text-dark pe-4"><i class="font-md text-success me-2" style="margin-top: -10px">{!! $icons->getIcon('image') !!}</i><span class="d-none-xs">Photo</span></a>
+    {{-- catch any error in the content using file uploads using laravel livewire component--}}
+    @error('content')
+        <span class="error">{{ $message }}</span>
+    @enderror
 
-        {{-- send button add to the create post --}}
+    <div wire:loading wire:target="images">Uploading ....</div>
+    <div wire:loading wire:target="video">Uploading ....</div>
+
+    
+    @if ($images)
+        @foreach ($images as $image)
+            <img src="{{ $image->temporaryUrl() }}" alt="" width="width:100px">
+        @endforeach
+    @endif
+
+    @if ($video)
+        <video src="{{ $video->temporaryUrl() }}" alt="" width="width:100%; height:100%"> </video>
+            <br>
+    @endif
+
+    {{-- hide the image and video file choosen icons --}}
+    <style>
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+    </style>
+
+    <div class="p-0 mt-0 card-body d-flex">
+
+        {{-- add image file icon to create post --}}
+        <a href="#"
+            class="d-flex align-items-center font-xssss fw-600 ls-1 text-success pe-4 upload-btn-wrapper"><i
+                class="font-md text-success me-2">{!! $icons->getIcon('image') !!}</i><span class="d-none-xs">Photo
+                <input type="file" multiple id="file" wire:model='images'></span></a>
+
+         {{-- add video file icon to create post --}}
+        <a href="#"
+            class="d-flex align-items-center font-xssss fw-600 ls-1 text-danger  pe-4 upload-btn-wrapper"><i
+                class="font-md text-danger me-2">{!! $icons->getIcon('video') !!}</i><span class="d-none-xs">Video
+                <input type="file" id="file" wire:model='video'></span></a>
+
+         {{-- add send icon to create post --}}
         <button style="outline: none;
                 border: none;
                 border-radius: 43px;" type="submit"
             class="outline-none ms-auto botder-none bg-none"><i
                 class=" text-grey-900 btn-round-md bg-greylight font-xss">{!! $icons->getIcon('send') !!}</i></button>
     </div>
+
 </form>
