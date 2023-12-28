@@ -125,87 +125,144 @@
                             </div>
                         </div>
                     </div>
-
+                    {{-- End the Story Section --}}
 
 
                     @livewire('components.create-post')
                     {{-- End the section of whats on your mind --}}
 
-                    {{-- start personal post --}}
-                    <div class="card w-100 shadow-xss rounded-xxl border-0 p-4 mb-3">
-                        <div class="card-body p-0 d-flex">
-                            <figure class="avatar me-3"><img src="images/user-7.png" alt="image" class="shadow-sm rounded-circle w45"></figure>
-                            <h4 class="fw-700 text-grey-900 font-xssss mt-1">Surfiya Zakir  <span class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">3 hour ago</span></h4>
-                            <a href="#" class="ms-auto" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"><i class="ti-more-alt text-grey-900 btn-round-md bg-greylight font-xss"></i></a>
-                            <div class="dropdown-menu dropdown-menu-end p-4 rounded-xxl border-0 shadow-lg" aria-labelledby="dropdownMenu2">
-                                <div class="card-body p-0 d-flex">
-                                    <i class=" text-grey-500 me-3 font-lg" style="margin-top: -10px">{!! $icons->getIcon('bookmark') !!}</i>
-                                    <h4 class="fw-600 text-grey-900 font-xssss mt-0 me-4">Save Link <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Add this to your saved items</span></h4>
-                                </div>
-                                <div class="card-body p-0 d-flex mt-2">
-                                    <i class=" text-grey-500 me-3 font-lg" style="margin-top: -10px">{!! $icons->getIcon('alert-octagon') !!}</i>
-                                    <h4 class="fw-600 text-grey-900 font-xssss mt-0 me-4">Hide all from Group <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Save to your saved items</span></h4>
-                                </div>
-                                <div class="card-body p-0 d-flex mt-2">
-                                    <i class=" text-grey-500 me-3 font-lg" style="margin-top: -10px">{!! $icons->getIcon('lock') !!}</i>
-                                    <h4 class="fw-600 mb-0 text-grey-900 font-xssss mt-0 me-4">Unfollow Group <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Save to your saved items</span></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body p-0 me-lg-5">
-                            <p class="fw-500 text-grey-500 lh-26 font-xssss w-100">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla dolor, ornare at commodo non, feugiat non nisi. Phasellus faucibus mollis pharetra. Proin blandit ac massa sed rhoncus <a href="#" class="fw-600 text-primary ms-2">See more</a></p>
-                        </div>
-                        <div class="card-body d-block p-0">
-                            <div class="row ps-2 pe-2">
-                                <div class="col-xs-4 col-sm-4 p-1"><a href="images/t-10.jpg" data-lightbox="roadtrip"><img src="images/t-10.jpg" class="rounded-3 w-100" alt="image"></a></div>
-                                <div class="col-xs-4 col-sm-4 p-1"><a href="images/t-11.jpg" data-lightbox="roadtrip"><img src="images/t-11.jpg" class="rounded-3 w-100" alt="image"></a></div>
-                                <div class="col-xs-4 col-sm-4 p-1"><a href="images/t-12.jpg" data-lightbox="roadtrip" class="position-relative d-block"><img src="images/t-12.jpg" class="rounded-3 w-100" alt="image"><span class="img-count font-sm text-white ls-3 fw-600"><b>+2</b></span></a></div>
-                            </div>
-                        </div>
-                        <div class="card-body d-flex p-0 mt-3">
-                            <a href="#" class="emoji-bttn d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2"><i class="text-white bg-primary-gradiant me-1 btn-round-sm font-xss" style="margin-top: -10px">{!! $icons->getIcon('thumbs-up') !!}</i> 2.8K Like</a>
-                            <div class="emoji-wrap">
-                                <ul class="emojis list-inline mb-0">
-                                    <li class="emoji list-inline-item"><i class="em em---1"></i> </li>
-                                    <li class="emoji list-inline-item"><i class="em em-heart"></i> </li>
-                                    <li class="emoji list-inline-item"><i class="em em-blush"></i></li>
-                                    <li class="emoji list-inline-item"><i class="em em-angry"></i></li>
-                                    <li class="emoji list-inline-item"><i class="em em-star-struck"></i> </li>
-                                    <li class="emoji list-inline-item"><i class="em em-astonished"></i> </li>
-                                    <li class="emoji list-inline-item"><i class="em em-clap"></i></li>
-                                    <li class="emoji list-inline-item"><i class="em em-cry"></i></li>
+                    {{-- plan to run all the post through the loop --}}
+                    @forelse ($posts as $post)
 
-                                </ul>
+                         {{-- start personal post --}}
+                        <div class="card w-100 shadow-xss rounded-xxl border-0 p-4 mb-3">
+                            <div class="card-body p-0 d-flex">
+                                <figure class="avatar me-3"><img src="images/user-7.png" alt="image" class="shadow-sm rounded-circle w45"></figure>
+                                <h4 class="fw-700 text-grey-900 font-xssss mt-1">{{ $post->user->username }} <span class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">{{ $post->created_at->diffForHumans() }}</span></h4>
+                                <a href="#" class="ms-auto" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"><i class="ti-more-alt text-grey-900 btn-round-md bg-greylight font-xss"></i></a>
+                                <div class="dropdown-menu dropdown-menu-end p-4 rounded-xxl border-0 shadow-lg" aria-labelledby="dropdownMenu2">
+                                    <div class="card-body p-0 d-flex">
+                                        <i class=" text-grey-500 me-3 font-lg" style="margin-top: -10px">{!! $icons->getIcon('bookmark') !!}</i>
+                                        <h4 class="fw-600 text-grey-900 font-xssss mt-0 me-4">Save Link <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Add this to your saved items</span></h4>
+                                    </div>
+                                    <div class="card-body p-0 d-flex mt-2">
+                                        <i class=" text-grey-500 me-3 font-lg" style="margin-top: -10px">{!! $icons->getIcon('alert-octagon') !!}</i>
+                                        <h4 class="fw-600 text-grey-900 font-xssss mt-0 me-4">Hide all from Group <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Save to your saved items</span></h4>
+                                    </div>
+                                    <div class="card-body p-0 d-flex mt-2">
+                                        <i class=" text-grey-500 me-3 font-lg" style="margin-top: -10px">{!! $icons->getIcon('lock') !!}</i>
+                                        <h4 class="fw-600 mb-0 text-grey-900 font-xssss mt-0 me-4">Unfollow Group <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Save to your saved items</span></h4>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="#" class="d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss"><i class="text-dark text-grey-900 btn-round-md font-lg" style="margin-top: -10px">{!! $icons->getIcon('message-circle') !!}</i><span class="d-none-xss">22 Comment</span></a>
-                            <a href="#" id="dropdownMenu21" data-bs-toggle="dropdown" aria-expanded="false" class="ms-auto d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss"><i class=" text-grey-900 text-dark btn-round-md font-lg" style="margin-top: -10px">{!! $icons->getIcon('share-2') !!}</i><span class="d-none-xs">Share</span></a>
-                            <div class="dropdown-menu dropdown-menu-end p-4 rounded-xxl border-0 shadow-lg" aria-labelledby="dropdownMenu21">
-                                <h4 class="fw-700 font-xss text-grey-900 d-flex align-items-center">Share <i class="ms-auto font-xssss btn-round-xs bg-greylight text-grey-900 me-2" style="margin-top: -10px">{!! $icons->getIcon('x-square') !!}</i></h4>
-                                <div class="card-body p-0 d-flex">
-                                    <ul class="d-flex align-items-center justify-content-between mt-2">
-                                        <li class="me-1"><a href="#" class="btn-round-lg bg-facebook"><i class="font-xs ti-facebook text-white"></i></a></li>
-                                        <li class="me-1"><a href="#" class="btn-round-lg bg-twiiter"><i class="font-xs ti-twitter-alt text-white"></i></a></li>
-                                        <li class="me-1"><a href="#" class="btn-round-lg bg-linkedin"><i class="font-xs ti-linkedin text-white"></i></a></li>
-                                        <li class="me-1"><a href="#" class="btn-round-lg bg-instagram"><i class="font-xs ti-instagram text-white"></i></a></li>
-                                        <li><a href="#" class="btn-round-lg bg-pinterest"><i class="font-xs ti-pinterest text-white"></i></a></li>
+                            <div class="card-body p-0 me-lg-5">
+                                <p class="fw-500 text-grey-500 lh-26 font-xssss w-100">{{ $post->content }}</p>
+                            </div>
+                            <div class="card-body d-block p-0">
+                                <div class="row ps-2 pe-2">
+
+                                    {{-- first select the post media according to the post id --}}
+                                    @php
+                                    $post_media = App\Models\PostMedia::where('post_id', $post->id)->first();
+
+                                    @endphp
+
+                                    {{-- only the file type image do this step --}}
+                                    @if ( $post_media && $post_media->file_type == "image")
+
+                                                {{-- using json_decode method to convert json encode images to normal images --}}
+                                                @php
+                                                    $medias = json_decode($post_media->file);
+                                                @endphp
+
+                                                {{-- run the loop to retrive all the post media for the specific post id --}}
+                                                @foreach( $medias as $media )
+                                                    @if ($loop->index > 2)
+                                                    @continue
+                                                    @endif
+
+                                                        {{-- post media count is 1 display full size image on the screen --}}
+                                                            <div class="p-1 {{ count($medias)==1 ? 'col-12' : 'col-xs-4 col-sm-4' }}"><a href="{{ asset('storage').'/'.$media }}" data-lightbox="roadtrip" class="{{ $loop->index == 2 ? 'position-relative d-block': "" }}"><img src="{{ asset('storage').'/'.$media }}" class="rounded-3 w-100" alt="image">
+
+                                                             {{-- add count variable on images when more images has to display --}}
+
+                                                            @if ($loop->index == 2 )
+                                                            <span class="img-count font-sm text-white ls-3 fw-600"><b>+{{ count($medias)-3}}</b></span>
+                                                            @endif
+
+                                                            </a></div>
+
+                                                @endforeach
+
+                                        @elseif ($post_media && $post_media->file_type == 'video')
+                                            <video id="my-video" class="video-js" controls preload="auto" data-setup="{}"
+                                                width="100%" height="100%">
+                                                <source src="{{ asset('storage') . '/' . $post_media->file }}"
+                                                    type="video/mp4" />
+                                                <p class="vjs-no-js">
+                                                    {{-- To view this video please enable JavaScript, and consider upgrading to a
+                                                    web browser that --}}
+                                                    <a href="https://videojs.com/html5-video-support/"
+                                                        target="_blank">supports HTML5 video</a>
+                                                </p>
+                                            </video>
+                                    @endif
+
+
+
+
+                                </div>
+                            </div>
+                            <div class="card-body d-flex p-0 mt-3">
+                                <a href="#" class="emoji-bttn d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2"><i class="text-white bg-primary-gradiant me-1 btn-round-sm font-xss" style="margin-top: -10px">{!! $icons->getIcon('thumbs-up') !!}</i> 2.8K Like</a>
+                                <div class="emoji-wrap">
+                                    <ul class="emojis list-inline mb-0">
+                                        <li class="emoji list-inline-item"><i class="em em---1"></i> </li>
+                                        <li class="emoji list-inline-item"><i class="em em-heart"></i> </li>
+                                        <li class="emoji list-inline-item"><i class="em em-blush"></i></li>
+                                        <li class="emoji list-inline-item"><i class="em em-angry"></i></li>
+                                        <li class="emoji list-inline-item"><i class="em em-star-struck"></i> </li>
+                                        <li class="emoji list-inline-item"><i class="em em-astonished"></i> </li>
+                                        <li class="emoji list-inline-item"><i class="em em-clap"></i></li>
+                                        <li class="emoji list-inline-item"><i class="em em-cry"></i></li>
+
                                     </ul>
                                 </div>
-                                <div class="card-body p-0 d-flex">
-                                    <ul class="d-flex align-items-center justify-content-between mt-2">
-                                        <li class="me-1"><a href="#" class="btn-round-lg bg-tumblr"><i class="font-xs ti-tumblr text-white"></i></a></li>
-                                        <li class="me-1"><a href="#" class="btn-round-lg bg-youtube"><i class="font-xs ti-youtube text-white"></i></a></li>
-                                        <li class="me-1"><a href="#" class="btn-round-lg bg-flicker"><i class="font-xs ti-flickr text-white"></i></a></li>
-                                        <li class="me-1"><a href="#" class="btn-round-lg bg-black"><i class="font-xs ti-vimeo-alt text-white"></i></a></li>
-                                        <li class="me-1"><a href="#" class="btn-round-lg bg-whatsup"><i class="font-xs text-white" style="margin-top: -10px">{!! $icons->getIcon('phone') !!}</i></a></li>
-                                    </ul>
+                                <a href="#" class="d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss"><i class="text-dark text-grey-900 btn-round-md font-lg" style="margin-top: -10px">{!! $icons->getIcon('message-circle') !!}</i><span class="d-none-xss">22 Comment</span></a>
+                                <a href="#" id="dropdownMenu21" data-bs-toggle="dropdown" aria-expanded="false" class="ms-auto d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss"><i class=" text-grey-900 text-dark btn-round-md font-lg" style="margin-top: -10px">{!! $icons->getIcon('share-2') !!}</i><span class="d-none-xs">Share</span></a>
+                                <div class="dropdown-menu dropdown-menu-end p-4 rounded-xxl border-0 shadow-lg" aria-labelledby="dropdownMenu21">
+                                    <h4 class="fw-700 font-xss text-grey-900 d-flex align-items-center">Share <i class="ms-auto font-xssss btn-round-xs bg-greylight text-grey-900 me-2" style="margin-top: -10px">{!! $icons->getIcon('x-square') !!}</i></h4>
+                                    <div class="card-body p-0 d-flex">
+                                        <ul class="d-flex align-items-center justify-content-between mt-2">
+                                            <li class="me-1"><a href="#" class="btn-round-lg bg-facebook"><i class="font-xs ti-facebook text-white"></i></a></li>
+                                            <li class="me-1"><a href="#" class="btn-round-lg bg-twiiter"><i class="font-xs ti-twitter-alt text-white"></i></a></li>
+                                            <li class="me-1"><a href="#" class="btn-round-lg bg-linkedin"><i class="font-xs ti-linkedin text-white"></i></a></li>
+                                            <li class="me-1"><a href="#" class="btn-round-lg bg-instagram"><i class="font-xs ti-instagram text-white"></i></a></li>
+                                            <li><a href="#" class="btn-round-lg bg-pinterest"><i class="font-xs ti-pinterest text-white"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-body p-0 d-flex">
+                                        <ul class="d-flex align-items-center justify-content-between mt-2">
+                                            <li class="me-1"><a href="#" class="btn-round-lg bg-tumblr"><i class="font-xs ti-tumblr text-white"></i></a></li>
+                                            <li class="me-1"><a href="#" class="btn-round-lg bg-youtube"><i class="font-xs ti-youtube text-white"></i></a></li>
+                                            <li class="me-1"><a href="#" class="btn-round-lg bg-flicker"><i class="font-xs ti-flickr text-white"></i></a></li>
+                                            <li class="me-1"><a href="#" class="btn-round-lg bg-black"><i class="font-xs ti-vimeo-alt text-white"></i></a></li>
+                                            <li class="me-1"><a href="#" class="btn-round-lg bg-whatsup"><i class="font-xs text-white" style="margin-top: -10px">{!! $icons->getIcon('phone') !!}</i></a></li>
+                                        </ul>
+                                    </div>
+                                    <h4 class="fw-700 font-xssss mt-4 text-grey-500 d-flex align-items-center mb-3">Copy Link</h4>
+                                    <i class="position-absolute right-35 mt-2 font-xs text-grey-500" style="margin-top: -10px">{!! $icons->getIcon('copy') !!}</i>
+                                    <input type="text" value="https://socia.be/1rGxjoJKVF0" class="bg-grey text-grey-500 font-xssss border-0 lh-32 p-2 font-xssss fw-600 rounded-3 w-100 theme-dark-bg">
                                 </div>
-                                <h4 class="fw-700 font-xssss mt-4 text-grey-500 d-flex align-items-center mb-3">Copy Link</h4>
-                                <i class="position-absolute right-35 mt-2 font-xs text-grey-500" style="margin-top: -10px">{!! $icons->getIcon('copy') !!}</i>
-                                <input type="text" value="https://socia.be/1rGxjoJKVF0" class="bg-grey text-grey-500 font-xssss border-0 lh-32 p-2 font-xssss fw-600 rounded-3 w-100 theme-dark-bg">
                             </div>
                         </div>
-                    </div>
 
+                    @empty
+                        <h1 class="text-center text-danger"> No New Posts Found !!</h1>
+                    @endforelse
+
+
+                    {{-- All other extra posts --}}
                     <div class="card w-100 shadow-xss rounded-xxl border-0 p-4 mb-0">
                         <div class="card-body p-0 d-flex">
                             <figure class="avatar me-3 m-0"><img src="images/user-8.png" alt="image" class="shadow-sm rounded-circle w45"></figure>

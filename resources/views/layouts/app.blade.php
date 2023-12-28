@@ -19,6 +19,7 @@ $icons = new \Feather\IconManager();
     <link rel="stylesheet" href=" {{ asset('css/emoji.css') }}">
 
     <link rel="stylesheet" href=" {{ asset('css/lightbox.css') }}">
+    {{-- video player css file --}}
     <link rel="stylesheet" href="{{ asset('css/video-player.css') }}">
 
     {{-- toastr is a Javascript library for non-blocking notifications. jQuery is required.  --}}
@@ -111,6 +112,8 @@ $icons = new \Feather\IconManager();
 
     <script src="{{ asset('js/lightbox.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
+
+    {{-- video player --}}
     <script src="{{ asset('js/video-player.js') }}"></script>
 
     {{-- toastr is a Javascript library for non-blocking notifications. jQuery is required.  --}}
