@@ -21,16 +21,18 @@
         <span class="error">{{ $message }}</span>
     @enderror
 
-    <div wire:loading wire:target="images">Uploading ....</div>
-    <div wire:loading wire:target="video">Uploading ....</div>
+    {{-- add the loading preview icons to images and videos --}}
+    <div wire:loading wire:target="images">Uploading your pictures, please wait....</div>
+    <div wire:loading wire:target="video">Uploading your videos, please wait....</div>
 
-    
+
     @if ($images)
         @foreach ($images as $image)
             <img src="{{ $image->temporaryUrl() }}" alt="" width="width:100px">
         @endforeach
     @endif
 
+    {{-- display one video at a time --}}
     @if ($video)
         <video src="{{ $video->temporaryUrl() }}" alt="" width="width:100%; height:100%"> </video>
             <br>
