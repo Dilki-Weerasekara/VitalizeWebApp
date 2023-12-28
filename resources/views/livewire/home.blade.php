@@ -208,26 +208,33 @@
                                             </video>
                                     @endif
 
-
-
-
                                 </div>
                             </div>
-                            <div class="card-body d-flex p-0 mt-3">
-                                <a href="#" class="emoji-bttn d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2"><i class="text-white bg-primary-gradiant me-1 btn-round-sm font-xss" style="margin-top: -10px">{!! $icons->getIcon('thumbs-up') !!}</i> 2.8K Like</a>
-                                <div class="emoji-wrap">
-                                    <ul class="emojis list-inline mb-0">
-                                        <li class="emoji list-inline-item"><i class="em em---1"></i> </li>
-                                        <li class="emoji list-inline-item"><i class="em em-heart"></i> </li>
-                                        <li class="emoji list-inline-item"><i class="em em-blush"></i></li>
-                                        <li class="emoji list-inline-item"><i class="em em-angry"></i></li>
-                                        <li class="emoji list-inline-item"><i class="em em-star-struck"></i> </li>
-                                        <li class="emoji list-inline-item"><i class="em em-astonished"></i> </li>
-                                        <li class="emoji list-inline-item"><i class="em em-clap"></i></li>
-                                        <li class="emoji list-inline-item"><i class="em em-cry"></i></li>
 
-                                    </ul>
-                                </div>
+
+                            <div class="card-body d-flex p-0 mt-3">
+                                {{-- <a href="#" wire:click.prevent="like({{ $post->id }})"
+                                class="emoji-bttn d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2"><i class="text-white bg-primary-gradiant me-1 btn-round-sm font-xss" style="margin-top: -10px">{!! $icons->getIcon('thumbs-up') !!}</i> {{ $post->likes ?? 0 }} Like</a> --}}
+
+                                @php
+                                $like = App\Models\Like::where(['post_id' => $post->id, 'user_id' => auth()->id()])->exists();
+                                @endphp
+                                @if ($like)
+                                <a href="#" wire:click.prevent="dislike({{ $post->id }})"
+                                    class=" d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2"><i
+                                        class="text-info me-1 btn-round-xs font-xss"
+                                        style="margin-top: -10px">{!! $icons->getIcon('thumbs-up', ['fill' => 'blue']) !!}</i>{{ $post->likes ?? 0 }}
+                                    Like</a>
+                                 @else
+                                <a href="#" wire:click.prevent="like({{ $post->id }})"
+                                    class=" d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2"><i
+                                        class="text-info  me-1  btn-round-xs font-xss"
+                                        style="margin-top: -10px">{!! $icons->getIcon('thumbs-up') !!}</i>{{ $post->likes ?? 0 }}
+                                    Like</a>
+                                @endif
+
+
+                                {{-- Comment Section --}}
                                 <a href="#" class="d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss"><i class="text-dark text-grey-900 btn-round-md font-lg" style="margin-top: -10px">{!! $icons->getIcon('message-circle') !!}</i><span class="d-none-xss">22 Comment</span></a>
                                 <a href="#" id="dropdownMenu21" data-bs-toggle="dropdown" aria-expanded="false" class="ms-auto d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss"><i class=" text-grey-900 text-dark btn-round-md font-lg" style="margin-top: -10px">{!! $icons->getIcon('share-2') !!}</i><span class="d-none-xs">Share</span></a>
                                 <div class="dropdown-menu dropdown-menu-end p-4 rounded-xxl border-0 shadow-lg" aria-labelledby="dropdownMenu21">
