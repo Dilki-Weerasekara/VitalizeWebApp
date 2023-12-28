@@ -20,6 +20,8 @@ $icons = new \Feather\IconManager();
 
     <link rel="stylesheet" href=" {{ asset('css/lightbox.css') }}">
     <link rel="stylesheet" href="{{ asset('css/video-player.css') }}">
+
+    {{-- toastr is a Javascript library for non-blocking notifications. jQuery is required.  --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
     {{-- emoji Stylesheet --}}
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
@@ -110,18 +112,23 @@ $icons = new \Feather\IconManager();
     <script src="{{ asset('js/lightbox.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="{{ asset('js/video-player.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    {{-- toastr is a Javascript library for non-blocking notifications. jQuery is required.  --}}
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     @livewireScripts
 
     <script>
         window.addEventListener('alert', event => {
-            toastr[event.detail.type](event.detail.message,
-                event.detail.title ?? ''), toastr.options = {
-                "closeButton": true,
-                "progressBar": true,
+        // console.log('Event type:', event.detail.type); // Add this line for debugging
+        toastr[event.detail.type="info"](event.detail.message="Your Post will be Published Shortly", event.detail.title ?? ''), toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
             }
         });
+
     </script>
+
     <script>
         window.onscroll = function(x) {
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
