@@ -77,29 +77,56 @@ $icons = new \Feather\IconManager();
         </div>
 
     </div>
+
+
+    {{-- This is the section where story display as multiple stories using carousal , here only one story per person and show all users stories  with comment feature --}}
+
     @foreach (App\Models\Story::where('created_at', '>=', now()->subDay())->latest()->get()->unique('user_id') as $story)
+    <!-- This loop iterates through stories created in the last day, ensuring each user's story is unique -->
+
         <div class="modal bottom side fade" id="{{ $story->user->uuid }}" tabindex="-1" role="dialog"
             style=" overflow-y: auto;">
+             <!-- Modal for each story with a unique ID based on the user's UUID -->
+
             <div class="modal-dialog modal-dialog-centered" role="document">
+                 <!-- Centered modal dialog box -->
+
                 <div class="bg-transparent border-0 modal-content">
+                     <!-- Modal content with transparent background and no border -->
+
                     <button type="button" class="mt-0 close position-absolute top--30 right--10" data-dismiss="modal"
                         aria-label="Close"><i class=" text-grey-900 font-xssss">X</i></button>
+                         <!-- Close button for the modal -->
+
                     <div class="p-0 modal-body">
+                             <!-- Body of the modal -->
+
                         <div class="overflow-hidden border-0 card w-100 rounded-3 bg-gradiant-bottom bg-gradiant-top">
+                             <!-- Card element to display story content -->
+
                             <div class="owl-carousel owl-theme dot-style3 story-slider owl-dot-nav nav-none">
+                                 <!-- Carousel for the story images -->
+
                                 @foreach (json_decode($story->story) as $story)
+                                 <!-- Loop through each image in the story -->
                                     <div class="item"><img src="{{ asset('storage') . '/' . $story }}"
                                             alt="image">
                                     </div>
+                                    <!-- Display each image in the carousel -->
                                 @endforeach
                             </div>
                         </div>
                         <div class="bottom-0 p-3 mt-3 mb-0 form-group position-absolute z-index-1 w-100">
+                            <!-- Container for the comment input field -->
+
                             <input type="text"
                                 class="p-3 text-white bg-transparent style2-input w-100 border-light-md pe-5 font-xssss fw-500"
                                 value="Write Comments">
+                                 <!-- Input field for writing comments -->
+
                             <span class="text-white font-md position-absolute"
                                 style="bottom: 35px;right:30px;"><i>{!! $icons->getIcon('send') !!}</i></span>
+                                <!-- Button/icon to send the comment -->
                         </div>
                     </div>
                 </div>
