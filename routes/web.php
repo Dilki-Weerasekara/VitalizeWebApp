@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
+use App\Livewire\SinglePost;
+use App\Livewire\Peoples;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,12 @@ use App\Livewire\Home;
 |
 */
 
-Route::get('/', Home::class)->middleware(['auth', 'verified','VerifiedUser']);     //dont allow users to see anything until they are authorize and verify the email or mobile verification after login.
+ //dont allow users to see anything until they are authorize and verify the email or mobile verification after login.
+Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
+    Route::get('/', Home::class)->name("home");
+    Route::get('/post/{useruuid}/{postuuid}', SinglePost::class)->name("single-post");   //view a wallpost as single page post
+
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -26,5 +33,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';

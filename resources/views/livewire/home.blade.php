@@ -137,7 +137,7 @@
                          {{-- start personal post --}}
                         <div class="card w-100 shadow-xss rounded-xxl border-0 p-4 mb-3">
                             <div class="card-body p-0 d-flex">
-                                <figure class="avatar me-3"><img src="images/user-7.png" alt="image" class="shadow-sm rounded-circle w45"></figure>
+                                <figure class="avatar me-3"><img src="{{ $post->user->profile ? asset('storage') . '/' . $post->user->profile : 'images/user-7.png' }}" alt="image" class="shadow-sm rounded-circle w45"></figure>
                                 <h4 class="fw-700 text-grey-900 font-xssss mt-1">{{ $post->user->username }} <span class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">{{ $post->created_at->diffForHumans() }}</span></h4>
                                 <a href="#" class="ms-auto" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"><i class="ti-more-alt text-grey-900 btn-round-md bg-greylight font-xss"></i></a>
                                 <div class="dropdown-menu dropdown-menu-end p-4 rounded-xxl border-0 shadow-lg" aria-labelledby="dropdownMenu2">
@@ -156,7 +156,12 @@
                                 </div>
                             </div>
                             <div class="card-body p-0 me-lg-5">
-                                <p class="fw-500 text-grey-500 lh-26 font-xssss w-100">{{ $post->content }}</p>
+                                <a
+                                    href="{{ route('single-post', ['useruuid' => $post->user->uuid, 'postuuid' => $post->uuid]) }}">
+                                    <p class="fw-500 text-grey-500 lh-26 font-xssss w-100">{{ $post->content }}</p>
+
+                                    {{-- view the wallpost as singlePost in aother page --}}
+                                </a>
                             </div>
                             <div class="card-body d-block p-0">
                                 <div class="row ps-2 pe-2">
@@ -260,7 +265,7 @@
                                     </div>
                                     <h4 class="fw-700 font-xssss mt-4 text-grey-500 d-flex align-items-center mb-3">Copy Link</h4>
                                     <i class="position-absolute right-35 mt-2 font-xs text-grey-500" style="margin-top: -10px">{!! $icons->getIcon('copy') !!}</i>
-                                    <input type="text" value="https://socia.be/1rGxjoJKVF0" class="bg-grey text-grey-500 font-xssss border-0 lh-32 p-2 font-xssss fw-600 rounded-3 w-100 theme-dark-bg">
+                                    <input type="text" value="{{ route('single-post', ['useruuid' => $post->user->uuid, 'postuuid' => $post->uuid]) }}" class="bg-grey text-grey-500 font-xssss border-0 lh-32 p-2 font-xssss fw-600 rounded-3 w-100 theme-dark-bg">
                                 </div>
                             </div>
 
