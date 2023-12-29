@@ -235,7 +235,8 @@
 
 
                                 {{-- Comment Section --}}
-                                <a href="#" class="d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss"><i class="text-dark text-grey-900 btn-round-md font-lg" style="margin-top: -10px">{!! $icons->getIcon('message-circle') !!}</i><span class="d-none-xss">22 Comment</span></a>
+                                <a href="#" class="d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss"><i class="text-dark text-grey-900 btn-round-md font-lg" style="margin-top: -10px">{!! $icons->getIcon('message-circle') !!}</i><span class="d-none-xss"> {{ $post->comments }} Comment</span></a>
+                                {{-- Share section --}}
                                 <a href="#" id="dropdownMenu21" data-bs-toggle="dropdown" aria-expanded="false" class="ms-auto d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss"><i class=" text-grey-900 text-dark btn-round-md font-lg" style="margin-top: -10px">{!! $icons->getIcon('share-2') !!}</i><span class="d-none-xs">Share</span></a>
                                 <div class="dropdown-menu dropdown-menu-end p-4 rounded-xxl border-0 shadow-lg" aria-labelledby="dropdownMenu21">
                                     <h4 class="fw-700 font-xss text-grey-900 d-flex align-items-center">Share <i class="ms-auto font-xssss btn-round-xs bg-greylight text-grey-900 me-2" style="margin-top: -10px">{!! $icons->getIcon('x-square') !!}</i></h4>
@@ -262,6 +263,13 @@
                                     <input type="text" value="https://socia.be/1rGxjoJKVF0" class="bg-grey text-grey-500 font-xssss border-0 lh-32 p-2 font-xssss fw-600 rounded-3 w-100 theme-dark-bg">
                                 </div>
                             </div>
+
+                            <form method="POST" wire:submit.prevent="saveComment({{ $post->id }})">
+                                <input type="text" placeholder="write your comments here..." required
+                                    name="comment" wire:model.lazy="comment"
+                                    class="p-2 border-0 bg-grey text-grey-500 font-xssss lh-32 fw-600 rounded-3 w-100 theme-dark-bg"
+                                    id="">
+                            </form>
                         </div>
 
                     @empty

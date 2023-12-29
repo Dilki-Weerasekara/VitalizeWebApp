@@ -20,6 +20,32 @@ use Illuminate\Support\Facades\DB;
 class Home extends Component
 {
     public $paginate_no=5;
+    public $comment;
+
+    //comment function to the specific post
+    public function saveComment($post_id)
+    {
+        $this->validate([
+            "comment" => "required|string"   //validate the comment function
+        ]);
+        DB::beginTransaction();   //database transaction start
+        try {
+            Comment::firstOrCreate([        //first add or create new comment
+                "post_id" => $post_id,
+                "comment" => $this->comment,   //add the comment
+                "user_id" => auth()->id()    //authenticate the user
+            ]);
+            $post = Post::findOrFail($post_id);    //find or fail to find required post
+            $post->comments += 1;    //increment the comment count by 1
+            $post->save();     //save here
+            DB::commit();      //commit to the database
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        }
+        unset($this->comment);   //destroy the comment after submit
+    }
+
 
     // like function to the specific post
     public function like($id)
