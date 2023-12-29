@@ -44,6 +44,13 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+
+        //store the profile file image
+        $profile = "";
+        if ($request->hasFile("profile")) {
+            $profile = $request->file("profile")->store("profiles","public");
+        }
+
         //create a new object from user
         $user = User::create([
             'uuid'=>Str::uuid(),
@@ -53,17 +60,12 @@ class RegisteredUserController extends Controller
             'profession'=>  $request-> profession,
             'username' => $request->username,
             'gender' => $request->gender,
-            'profile' => $profile ?? "",
+            'profile' => $profile,
             'email' => $request->email,
             'mobile' => $request->tel,
             'password' => Hash::make($request->password),
         ]);
 
-        //store the profile file image
-        $profile = "";
-        if ($request->file("profile")) {
-            $profile = $request->file("profile")->store("profiles","public");
-        }
 
 
         event(new Registered($user));
