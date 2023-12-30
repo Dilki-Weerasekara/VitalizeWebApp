@@ -53,7 +53,7 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -73,4 +73,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // Here check current user sent friend request to that peron or that person sent a friend request to current user.
+    public function is_friend()
+    {
+        return (Friend::where(["user_id" => $this->id])->orWhere("friend_id", $this->id)->first()->status ?? "");
+    }
+
 }
+
+
+

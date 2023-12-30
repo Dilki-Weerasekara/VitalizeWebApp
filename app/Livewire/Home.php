@@ -85,8 +85,112 @@ class Home extends Component
     }
 
 
+        public function acceptfriend($id)
+    {
+        // Retrieve the user who sent the friend request, based on the provided ID.
+        $user = User::where("id", $id)->first();
+
+        // Start a database transaction. This ensures that all database operations
+        // either complete successfully together or get rolled back together in case of an error.
+        DB::beginTransaction();
+        try {
+            // Retrieve the friend request from the database where the current user
+            // is the recipient, and the status of the request is 'pending'.
+            $req = Friend::where([
+                "user_id" => $id,
+                "friend_id" => auth()->id(),
+                "status" => "pending"
+            ])->first();
+
+            // Update the status of the friend request to 'accepted' and set the accepted time.
+            $req->status = "accepted";
+            $req->accepted_at = now();
+            $req->save(); // Save the changes to the database.
+
+            // Create a notification for the user who sent the friend request to inform
+            // them that their request has been accepted.
+            Notification::create([
+                "type" => "friend_accepted",
+                "user_id" => $user->id,
+                "message" => auth()->user()->username . " accepted your friend request",
+                "url" => "#", // link to a relevant page.
+            ]);
+
+            // Commit the transaction to the database.
+            DB::commit();
+        } catch (\Throwable $th) {
+            // In case of an error, roll back the transaction to undo any changes made.
+            DB::rollBack();
+            throw $th; // Re-throw the exception to handle it elsewhere or log it.
+        }
+
+        // Dispatch a browser event to notify the current user that the friend request
+        // has been successfully accepted. This is for immediate feedback on the user interface.
+        $this->dispatchBrowserEvent('alert', [
+            "type" => "success", "message" => "friend request accepted"
+        ]);
+    }
+
+    
+
+        public function rejectfriend($id)
+    {
+        // Retrieve the user who sent the friend request using the provided ID.
+        $user = User::where("id", $id)->first();
+
+        // Start a database transaction to ensure all changes are executed successfully.
+        DB::beginTransaction();
+        try {
+            // Find the friend request where the current user is the recipient.
+            $req = Friend::where([
+                "user_id" => $id,
+                "friend_id" => auth()->id(),
+            ])->first();
+
+            // Update the friend request status to 'rejected'.
+            $req->status = "rejected";
+            $req->save(); // Save the change to the database.
+
+            // Create a notification for the user who sent the request, indicating it was rejected.
+            Notification::create([
+                "type" => "friend_rejected",
+                "user_id" => $user->id,
+                "message" => auth()->user()->username . " rejected your friend request",
+                "url" => "#", // link to a relevant page.
+            ]);
+
+
+            // Commit the transaction to save all database changes.
+            DB::commit();
+        } catch (\Throwable $th) {
+            // In case of an error, roll back the transaction to revert all changes.
+            DB::rollBack();
+            throw $th; // Re-throw the exception for further handling or logging.
+        }
+
+        // Dispatch a browser event to notify the current user that the friend request
+        // has been successfully rejected. This provides immediate feedback on the user interface.
+        $this->dispatchBrowserEvent('alert', [
+            "type" => "success", "message" => "friend request rejected"
+        ]);
+    }
+
+
+
+
+
+
+
+
+
     public function render()
     {
-        return view('livewire.home',['posts'=>Post::with("user")->latest()->paginate($this->paginate_no)])->extends("layouts.app");
+        return view('livewire.home',[
+
+            'posts'=>Post::with("user")->latest()->paginate($this->paginate_no),
+            'friend_requests' => Friend::where(["friend_id" => auth()->id(), "status" => "pending"])->with("user")->latest()->take(5)->get()
+
+            ])->extends("layouts.app");
+
     }
 }

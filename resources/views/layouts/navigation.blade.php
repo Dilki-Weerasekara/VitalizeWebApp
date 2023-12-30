@@ -33,10 +33,10 @@ https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.min.css
     <a href="{{ url('/') }}" class="  p-2 text-center ms-0 menu-icon center-menu-icon"><i
             class=" {{ request()->route()->getName() == 'home'? 'bg-primary': '' }} font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500"
             style="margin-top: -10px">{!! $icons->getIcon('home') !!}</i></a>
-    {{-- <a href="{{ route('explore') }}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i --}}
+    <a href="{{ route('explore') }}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i
             class=" {{ request()->route()->getName() == 'explore'? 'bg-primary': '' }} font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500"
             style="margin-top: -10px">{!! $icons->getIcon('zap') !!}</i></a>
-    <a href="{{ route('videos') }}" class="   p-2 text-center ms-0 menu-icon center-menu-icon"><i 
+    <a href="{{ route('videos') }}" class="   p-2 text-center ms-0 menu-icon center-menu-icon"><i
             class="{{ request()->route()->getName() == 'videos'? 'bg-primary': '' }} font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500"
             style="margin-top: -10px">{!! $icons->getIcon('video') !!}</i></a>
     {{-- <a href="{{ route('user', auth()->user()->uuid) }} " class="p-2 text-center ms-0 menu-icon center-menu-icon"><i --}}

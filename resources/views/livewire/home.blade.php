@@ -37,7 +37,7 @@
             <div class="row feed-body">
                 <div class="col-xl-8 col-xxl-9 col-lg-8">
 
-                    
+
                     @livewire('components.stories')
                     {{-- End the Story Section --}}
                     @livewire('components.create-post')
@@ -603,38 +603,42 @@
 
                 </div>
                 <div class="col-xl-4 col-xxl-3 col-lg-4 ps-lg-0">
-                    <div class="card w-100 shadow-xss rounded-xxl border-0 mb-3">
-                        <div class="card-body d-flex align-items-center p-4">
-                            <h4 class="fw-700 mb-0 font-xssss text-grey-900">Friend Request</h4>
-                            <a href="default-member.html" class="fw-600 ms-auto font-xssss text-primary">See all</a>
+                    {{-- Display the friend request bar in the home page --}}
+                    {{-- if the friend request count is zero remove the this section displaying there --}}
+                    @if (count($friend_requests))
+                    <div class="mb-3 border-0 card w-100 shadow-xss rounded-xxl">
+                        <div class="p-4 card-body d-flex align-items-center">
+                            <h4 class="mb-0 fw-700 font-xssss text-grey-900">Friend Request</h4>
+                            <a href="{{ route('explore') }}" class="fw-600 ms-auto font-xssss text-primary">See
+                                all</a>
                         </div>
-                        <div class="card-body d-flex pt-4 ps-4 pe-4 pb-0 border-top-xs bor-0">
-                            <figure class="avatar me-3"><img src="images/user-7.png" alt="image" class="shadow-sm rounded-circle w45"></figure>
-                            <h4 class="fw-700 text-grey-900 font-xssss mt-1">Anthony Daugloi <span class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">12 mutual friends</span></h4>
-                        </div>
-                        <div class="card-body d-flex align-items-center pt-0 ps-4 pe-4 pb-4">
-                            <a href="#" class="p-2 lh-20 w100 bg-primary-gradiant me-2 text-white text-center font-xssss fw-600 ls-1 rounded-xl">Confirm</a>
-                            <a href="#" class="p-2 lh-20 w100 bg-grey text-grey-800 text-center font-xssss fw-600 ls-1 rounded-xl">Delete</a>
-                        </div>
+                        {{-- set a loop to retrieve all the friend request they sent to the user --}}
+                        @forelse ($friend_requests as $user)
+                            <div class="pt-4 pb-0 card-body d-flex ps-4 pe-4 border-top-xs bor-0">
+                                <figure class="avatar me-3"><img
+                                        src="{{ asset('storage') . '/' . $user->user->profile }}" alt="image"
+                                        class="shadow-sm rounded-circle w45"></figure>
+                                <h4 class="mt-1 fw-700 text-grey-900 font-xssss">
+                                    {{ $user->user->first_name . ' ' . $user->user->last_name }} <span
+                                        class="mt-1 d-block font-xssss fw-500 lh-3 text-grey-500">12 mutual
+                                        friends</span>
+                                </h4>
+                            </div>
+                            {{-- user able to confirm the reuest or delete the request from this buttons --}}
+                            <div class="pt-0 pb-4 card-body d-flex align-items-center ps-4 pe-4">
+                                <button wire:click="acceptfriend({{ $user->user_id }})"
+                                    class="p-2 text-center text-white lh-20 w100 bg-primary-gradiant me-2 font-xssss fw-600 ls-1 rounded-xl">Confirm</button>
+                                <button wire:click="rejectfriend({{ $user->user_id }})"
+                                    class="p-2 text-center lh-20 w100 bg-grey text-grey-800 font-xssss fw-600 ls-1 rounded-xl">Delete</button>
+                            </div>
+                        @empty
+                        @endforelse
 
-                        <div class="card-body d-flex pt-0 ps-4 pe-4 pb-0">
-                            <figure class="avatar me-3"><img src="images/user-8.png" alt="image" class="shadow-sm rounded-circle w45"></figure>
-                            <h4 class="fw-700 text-grey-900 font-xssss mt-1">Mohannad Zitoun <span class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">12 mutual friends</span></h4>
-                        </div>
-                        <div class="card-body d-flex align-items-center pt-0 ps-4 pe-4 pb-4">
-                            <a href="#" class="p-2 lh-20 w100 bg-primary-gradiant me-2 text-white text-center font-xssss fw-600 ls-1 rounded-xl">Confirm</a>
-                            <a href="#" class="p-2 lh-20 w100 bg-grey text-grey-800 text-center font-xssss fw-600 ls-1 rounded-xl">Delete</a>
-                        </div>
-
-                        <div class="card-body d-flex pt-0 ps-4 pe-4 pb-0">
-                            <figure class="avatar me-3"><img src="images/user-12.png" alt="image" class="shadow-sm rounded-circle w45"></figure>
-                            <h4 class="fw-700 text-grey-900 font-xssss mt-1">Mohannad Zitoun <span class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">12 mutual friends</span></h4>
-                        </div>
-                        <div class="card-body d-flex align-items-center pt-0 ps-4 pe-4 pb-4">
-                            <a href="#" class="p-2 lh-20 w100 bg-primary-gradiant me-2 text-white text-center font-xssss fw-600 ls-1 rounded-xl">Confirm</a>
-                            <a href="#" class="p-2 lh-20 w100 bg-grey text-grey-800 text-center font-xssss fw-600 ls-1 rounded-xl">Delete</a>
-                        </div>
                     </div>
+                    @endif
+
+
+
 
                     <div class="card w-100 shadow-xss rounded-xxl border-0 p-0 ">
                         <div class="card-body d-flex align-items-center p-4 mb-0">
