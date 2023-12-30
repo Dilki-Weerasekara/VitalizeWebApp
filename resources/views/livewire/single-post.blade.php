@@ -121,13 +121,13 @@
                             @if ($like)
                                 <a href="#" wire:click.prevent="dislike({{ $post->id }})"
                                     class=" d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2"><i
-                                        class="text-white me-2 btn-round-xs font-xss"
-                                        style="margin-top: -10px">{!! $icons->getIcon('thumbs-up', ['fill' => 'yellow']) !!}</i>{{ $post->likes ?? 0 }}
+                                        class="text-info me-2 btn-round-xs font-xss"
+                                        style="margin-top: -10px">{!! $icons->getIcon('thumbs-up', ['fill' => 'blue']) !!}</i>{{ $post->likes ?? 0 }}
                                     Like</a>
                             @else
                                 <a href="#" wire:click.prevent="like({{ $post->id }})"
                                     class=" d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2"><i
-                                        class="text-white me-2 btn-round-xs font-xss"
+                                        class="text-info me-2 btn-round-xs font-xss"
                                         style="margin-top: -10px">{!! $icons->getIcon('thumbs-up') !!}</i>{{ $post->likes ?? 0 }}
                                     Like</a>
                             @endif
@@ -145,10 +145,7 @@
                                     class="d-none-xs">Share</span></a>
                             <div class="p-4 border-0 shadow-lg dropdown-menu dropdown-menu-end rounded-xxl"
                                 aria-labelledby="dropdownMenu21">
-                                <h4 class="fw-700 font-xss text-grey-900 d-flex align-items-center">Share
-                                    <i
-                                        class="feather-x ms-auto font-xssss btn-round-xs bg-greylight text-grey-900 me-2"></i>
-                                </h4>
+                                <h4 class="fw-700 font-xss text-grey-900 d-flex align-items-center">Share <i class="ms-auto font-xssss btn-round-xs bg-greylight text-grey-900 me-2" style="margin-top: -10px">{!! $icons->getIcon('x-square') !!}</i></h4>
 
                                 <div class="card-body p-0 d-flex">
                                     <ul class="d-flex align-items-center justify-content-between mt-2">
@@ -169,12 +166,9 @@
                                     </ul>
                                 </div>
 
-                                <h4 class="mt-4 mb-3 fw-700 font-xssss text-grey-500 d-flex align-items-center">
-                                    Copy Link</h4>
-                                {{-- <i class="mt-3 position-absolute right-35 font-xs text-grey-500" style="">{!! $icons->getIcon("copy")  !!}</i> --}}
-                                <input type="text"
-                                    value="{{ route('single-post', ['useruuid' => $post->user->uuid, 'postuuid' => $post->uuid]) }}"
-                                    class="p-2 border-0 bg-grey text-grey-500 font-xssss lh-32 fw-600 rounded-3 w-100 theme-dark-bg">
+                                <h4 class="fw-700 font-xssss mt-4 text-grey-500 d-flex align-items-center mb-3">Copy Link</h4>
+                                <i class="position-absolute right-35 mt-2 font-xs text-grey-500" style="margin-top: -10px">{!! $icons->getIcon('copy') !!}</i>
+                                <input type="text" value="{{ route('single-post', ['useruuid' => $post->user->uuid, 'postuuid' => $post->uuid]) }}" class="bg-grey text-grey-500 font-xssss border-0 lh-32 p-2 font-xssss fw-600 rounded-3 w-100 theme-dark-bg">
                             </div>
                         </div>
                         <form method="POST" wire:submit.prevent="saveComment({{ $post->id }})">
