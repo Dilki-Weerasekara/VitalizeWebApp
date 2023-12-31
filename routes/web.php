@@ -48,6 +48,9 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
     Route::get('/user/{uuid}', User::class)->name("user");  // user timeline
     Route::get('/post/{useruuid}/{postuuid}', SinglePost::class)->name("single-post");   //view a wallpost as single page post
 
+    Route::get('/groups', Groups::class)->name("groups");
+    Route::get('/groups/{uuid}', Group::class)->name("group");
+    Route::get('/group/create', CreateGroup::class)->name("create-group");
 });
 
 Route::get('/dashboard', function () {
