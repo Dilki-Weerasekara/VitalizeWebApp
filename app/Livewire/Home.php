@@ -19,8 +19,18 @@ use Illuminate\Support\Facades\DB;
 
 class Home extends Component
 {
-    public $paginate_no=5;
+    public $paginate_no = 9;
     public $comment;
+    public $hide_user_list = [];
+
+    public $listeners = [
+        "load-more" => 'LoadMore'
+    ];
+
+    public function LoadMore()
+    {
+        $this->paginate_no = $this->paginate_no + 3;
+    }
 
     //comment function to the specific post
     public function saveComment($post_id)
@@ -131,7 +141,7 @@ class Home extends Component
         ]);
     }
 
-    
+
 
         public function rejectfriend($id)
     {
@@ -176,20 +186,50 @@ class Home extends Component
     }
 
 
+    // function for join group
+    public function join($id)
+    {
+        $group = Group::findOrFail($id);
+        DB::beginTransaction();
+        try {
 
 
+            GroupMember::create([
+                "user_id" => auth()->id(),
+                "group_id" => $group->id
+            ]);
+            $group->members += 1;
+            $group->save();
+            Notification::create([
+                "type" => "page_liked",
+                "user_id" => $group->user_id,
+                "message" => auth()->user()->username . " joined your group " . $group->name,
+                "url" => "#",
+            ]);
 
-
-
+            $this->dispatchBrowserEvent('alert', [
+                "type" => "success", "message" =>  " you joined " . $group->name
+            ]);
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        }
+    }
 
 
     public function render()
     {
+
+        //get the user already registered groups here as my groups
+        $my_groups = GroupMember::where("user_id", auth()->id())->pluck("group_id");
+
         return view('livewire.home',[
 
             'posts'=>Post::with("user")->latest()->paginate($this->paginate_no),
-            'friend_requests' => Friend::where(["friend_id" => auth()->id(), "status" => "pending"])->with("user")->latest()->take(5)->get()
-
+            'friend_requests' => Friend::where(["friend_id" => auth()->id(), "status" => "pending"])->with("user")->latest()->take(5)->get(),
+            //suggest the new groups for user
+            "suggested_groups" => Group::whereNotIn("id", $my_groups)->inRandomOrder()->take(2)->get()
             ])->extends("layouts.app");
 
     }
