@@ -43,8 +43,7 @@
                                             {{ $group->members . ' Members - ' . App\Models\Post::where('group_id', $group->id)->count() }}
                                             Posts</p>
                                         <span class="position-absolute right-15 top-0 d-flex align-items-center">
-                                            {{-- <a href="#" class="d-lg-block d-none"><i --}}
-                                            {{-- class="feather-video btn-round-md font-md bg-primary-gradiant text-white"></i></a> --}}
+                                            
                                             @if (App\Models\GroupMember::where(['user_id' => auth()->id(), 'group_id' => $group->id])->exists())
                                                 <a wire:click="leave({{ $group->id }})"
                                                     class="mt-4 p-0 btn p-2 lh-24 w100 ms-1 ls-3 d-inline-block rounded-xl bg-warning font-xsssss fw-700 ls-lg text-white">Leave</a>
