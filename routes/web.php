@@ -45,8 +45,7 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
     Route::get('/', Home::class)->name("home");
     Route::get('/videos', VideoPosts::class)->name("videos");   //videopost route
     Route::get('/explore', Peoples::class)->name("explore");   //explore or find the friends
-    //Route::get('/user/{uuid}', User::class)->name("user");
-    //Route::get('/search', Search::class)->name("search");
+    Route::get('/user/{uuid}', User::class)->name("user");  // user timeline
     Route::get('/post/{useruuid}/{postuuid}', SinglePost::class)->name("single-post");   //view a wallpost as single page post
 
 });
