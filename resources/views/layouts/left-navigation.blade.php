@@ -31,9 +31,9 @@
                 <div class="nav-caption fw-600 font-xssss text-grey-500"><span></span> Account</div>
                 <ul class="mb-1">
                     <li class="logo d-none d-xl-block d-lg-block"></li>
-                    {{-- <li><a href="{{ route('settings') }}" class="h-auto pt-2 pb-2 nav-content-bttn open-font"><i --}}
+                    <li><a href="{{ route('settings') }}" class="h-auto pt-2 pb-2 nav-content-bttn open-font"><i
                                 class="font-sm  me-3 text-grey-500"
-                                style="margin-top: -10px">{!! $icons->getIcon('settings') !!}</i><span>Settings</span></a></li>
+                                style="margin-top: -10px">{!! $icons->getIcon('settings') !!}</i><span>User Settings</span></a></li>
                     <li><a href="{{ url("chat") }}" class="h-auto pt-2 pb-2 nav-content-bttn open-font"><i
                                 class="font-sm -square me-3 text-grey-500"
                                 style="margin-top: -10px">{!! $icons->getIcon('message-circle') !!}</i><span>Chat</span></a></li>
