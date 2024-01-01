@@ -44,8 +44,11 @@ https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.min.css
             style="margin-top: -10px">{!! $icons->getIcon('user') !!}</i></a>
 
 
+    {{-- notification section --}}
+
     <a href="#" class="p-2 text-center ms-auto menu-icon" id="dropdownMenu3" data-bs-toggle="dropdown"
         aria-expanded="false">
+        {{-- notification bell icon dot display --}}
         @if (App\Models\Notification::where(['user_id' => auth()->id(), 'read_at' => null])->latest()->exists())
             <span class="dot-count bg-warning"></span>
         @endif
@@ -53,20 +56,21 @@ https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.min.css
     </a>
     <div class="p-4 border-0 shadow-lg dropdown-menu dropdown-menu-end rounded-3" aria-labelledby="dropdownMenu3">
 
-        <h4 class="mb-4 fw-700 font-xss">Notification</h4>
+        <h4 class="mb-4 fw-700 font-xss">Notifications</h4>
 
+        {{-- use a loop to showcase the five notification actvities of the login user --}}
         @forelse ((App\Models\Notification::where("user_id",auth()->id())->latest()->take(5)->get()) as $item)
             <a href="{{ $item->url ?? '#' }}">
-                <div class="mb-3 border-0 card bg-transparent-card w-100 border-bottom shadow">
-                    <p class="mt-0 mb-1 font-xsss text-grey-900 fw-700 d-block">
+                <div class="mb-3 border-0 card bg-transparent-card w-100 border-bottom shadow text-white bg-primary p-2">
+                    <p class="mt-0 mb-1 font-xsss fw-700 d-block text-white bg-primary">
                         {{ $item->created_at->diffForHumans() }}</p>
-                    <h6 class="text-grey-500 fw-500 font-xssss lh-4">{{ $item->message }}</h6>
+                    <h6 class="fw-500 font-xssss lh-4 text-white bg-primary">{{ $item->message }}</h6>
                 </div>
             </a>
         @empty
             <h1 class="text-center text-danger">No Notifications Found!</h1>
         @endforelse
-
+    {{-- End of the Notification section --}}
 
     </div>
     {{-- <a href="{{ route('chat') }}" class="p-2 text-center ms-3"><i class="text-current font-xl" --}}
