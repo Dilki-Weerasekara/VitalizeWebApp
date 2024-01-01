@@ -50,6 +50,7 @@ class CreateGroup extends Component
                 "group_id" => $group->id
             ]);
 
+            // display the notifications in home page
             Notification::create([
                 "type" => "create_group",
                 "user_id" => auth()->id(),
