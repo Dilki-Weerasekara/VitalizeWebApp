@@ -53,7 +53,8 @@
                                 <h4 class="fw-700 text-grey-900 font-xssss mt-1">{{ $post->user->username }} <span class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">{{ $post->created_at->diffForHumans() }}</span></h4>
                                 <a href="#" class="ms-auto" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"><i class="ti-more-alt text-grey-900 btn-round-md bg-greylight font-xss"></i></a>
                                 <div class="dropdown-menu dropdown-menu-end p-4 rounded-xxl border-0 shadow-lg" aria-labelledby="dropdownMenu2">
-                                    <div class="card-body p-0 d-flex">
+                                    <div class="card-body p-0 d-flex" style="cursor: pointer"
+                                    wire:click="save({{ $post->id }})">
                                         <i class=" text-grey-500 me-3 font-lg" style="margin-top: -10px">{!! $icons->getIcon('bookmark') !!}</i>
                                         <h4 class="fw-600 text-grey-900 font-xssss mt-0 me-4">Save Link <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Add this to your saved items</span></h4>
                                     </div>

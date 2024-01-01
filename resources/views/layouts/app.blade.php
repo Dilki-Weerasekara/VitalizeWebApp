@@ -50,6 +50,8 @@ $icons = new \Feather\IconManager();
             @yield('content')
         </main>
 
+
+
         <!-- right chat -->
         <div class="border-0 shadow-lg app-footer bg-primary-gradiant">
             <a href="default.html" class="nav-content-bttn nav-center"><i class="feather-home"></i></a>
@@ -125,7 +127,7 @@ $icons = new \Feather\IconManager();
 
     @livewireScripts
 
-    <script>
+     {{-- <script>
         window.addEventListener('alert', event => {
         // console.log('Event type:', event.detail.type); // Add this line for debugging
         toastr[event.detail.type="info"](event.detail.message="Your Post will be Published Shortly", event.detail.title ?? ''), toastr.options = {
@@ -134,7 +136,16 @@ $icons = new \Feather\IconManager();
             }
         });
 
-    </script>
+    </script> --}}
+
+    @if (session('alert'))
+        <div class="alert alert-{{ session('alert.type') }} alert-dismissible fade show" role="alert">
+            {{ session('alert.message') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
 
 
     <script>

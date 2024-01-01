@@ -218,6 +218,25 @@ class Home extends Component
     }
 
 
+    // saved the post
+    public function save($post_id)
+    {
+        // Create a new 'SavedPost' record, or retrieve the existing one if it already exists.
+        // This ensures that a user can save a post only once.
+        SavedPost::firstOrCreate([
+            "user_id" => auth()->id(),  // Set the 'user_id' to the ID of the currently authenticated user.
+            "post_id" => $post_id  // Set the 'post_id' to the ID of the post being saved.
+        ]);
+
+        // Dispatch a browser event to show a success message.
+        // This provides immediate feedback to the user that the item has been saved.
+        $this->dispatch('alert', [
+            'type' => 'success',
+            'message' => 'Item Saved'
+        ]);
+
+    }
+
     public function render()
     {
 

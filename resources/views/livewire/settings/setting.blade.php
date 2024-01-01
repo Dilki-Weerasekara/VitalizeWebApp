@@ -61,7 +61,7 @@
                                             class="pt-2 pb-2 d-flex align-items-center"><i
                                                 class="btn-round-md bg-primary-gradiant text-white  font-md me-3"
                                                 style="margin-top: -10px">{!! $icons->getIcon('help-circle') !!}</i>
-                                            <h4 class="fw-600 font-xsss mb-0 mt-0">Help</h4><i
+                                            <h4 class="fw-600 font-xsss mb-0 mt-0">Professional Referrals and Directories</h4><i
                                                 class=" font-xsss text-grey-500 ms-auto mt-3"
                                                 style="margin-top: -10px">{!! $icons->getIcon('arrow-right') !!}</i>
                                         </a></li>

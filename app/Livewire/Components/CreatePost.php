@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\PostMedia;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Session;
 use Str;
 
 
@@ -26,7 +27,7 @@ class CreatePost extends Component
         $this->type = $type;
         $this->iid = $id;
     }
-    
+
 
     public function render()
     {
@@ -97,11 +98,18 @@ class CreatePost extends Component
 
         // alert message to the user
 
-         $this->dispatch('alert', [
-             'type' => 'success', // or 'info', 'warning', 'error'
-             'message' => 'Your post will be published shortly.'
+        //  $this->dispatchBrowserEvent('alert', [
+        //      'type' => 'success',
+        //       'message' => 'Your post will be published shortly.'
+        //  ]);
+
+
+         session()->flash('alert', [
+            'type' => 'success',
+            'message' => 'Your action was successful!'
         ]);
 
+        return redirect()->route("home");
 
     }
 

@@ -9,7 +9,7 @@
                 <div class="col-xl-12">
                     <div class="mt-3 mb-3 overflow-hidden border-0 card w-100 shadow-xss rounded-xxl">
                         <div class="card-body position-relative h240 bg-image-cover bg-image-center"
-                            style="background-image: url({{ $user->thumbnial ? asset('storage') . '/' . $user->thumbnial : config('app.url') . '/' . 'images/bb-9.jpg' }});">
+                            style="background-image: url({{ $user->thumbnail ? asset('storage') . '/' . $user->thumbnail : config('app.url') . '/' . 'images/bb-9.jpg' }});">
                         </div>
                         <div class="pt-4 text-center card-body d-block position-relative">
                             <figure class="avatar mt--6 position-relative w75 z-index-1 w100 ms-auto me-auto"><img
@@ -35,8 +35,8 @@
                             <div
                                 class="mt-2 d-flex align-items-center justify-content-center position-absolute right-15 top-10 me-2">
                                 @if (auth()->id() == $user->id)
-                                    {{-- <a href="{{ route('settings') }}"
-                                        class="p-3 text-white bg-primary d-none d-lg-block z-index-1 rounded-3 font-xsssss text-uppercase fw-700 ls-3">Edit</a> --}}
+                                    <a href="{{ route('settings') }}"
+                                        class="p-3 text-white bg-primary d-none d-lg-block z-index-1 rounded-3 font-xsssss text-uppercase fw-700 ls-3">Edit</a> 
                                 @elseif (App\Models\Friend::Where([
                                     'friend_id' => auth()->id(),
                                     'user_id' => $user->id,
