@@ -80,6 +80,23 @@ class User extends Authenticatable
         return (Friend::where(["user_id" => $this->id])->orWhere("friend_id", $this->id)->first()->status ?? "");
     }
 
+    // mutual friend function
+    public function mutual_friends()
+    {
+        // Retrieve all the friend connections where the current user is either the 'user_id' or 'friend_id'.
+        // This fetches the IDs of all the rows in the 'friends' table that involve the current user.
+        $my_friend_friends = Friend::where("user_id", $this->id)->OrWhere("friend_id", $this->id)->pluck("id")->toArray();
+
+        // Retrieve all the friend connections of the authenticated user (the one making the request).
+        // Similar to above, this fetches the IDs of all rows in the 'friends' table that involve the authenticated user.
+        $my_friend = Friend::where("user_id", auth()->id())->OrWhere("friend_id", auth()->id())->pluck("id")->toArray();
+
+        // Return the count of mutual friends.
+        // 'array_intersect' computes the intersection of arrays,it finds common IDs between the two arrays.
+        // This count represents the number of mutual friends between the current user and the authenticated user.
+        return count(array_intersect($my_friend, $my_friend_friends));
+    }
+
 }
 
 

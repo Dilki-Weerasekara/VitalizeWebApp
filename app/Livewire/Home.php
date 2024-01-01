@@ -240,15 +240,28 @@ class Home extends Component
     public function render()
     {
 
-        //get the user already registered groups here as my groups
+        //get the user already registered groups here
         $my_groups = GroupMember::where("user_id", auth()->id())->pluck("group_id");
+
+        // get a list of all the friend IDs associated with the currently authenticated user
+        $friend_ids = Friend::where(["user_id" => auth()->id()])->pluck("friend_id");
+
 
         return view('livewire.home',[
 
             'posts'=>Post::with("user")->latest()->paginate($this->paginate_no),
+
             'friend_requests' => Friend::where(["friend_id" => auth()->id(), "status" => "pending"])->with("user")->latest()->take(5)->get(),
             //suggest the new groups for user
-            "suggested_groups" => Group::whereNotIn("id", $my_groups)->inRandomOrder()->take(2)->get()
+            "suggested_groups" => Group::whereNotIn("id", $my_groups)->inRandomOrder()->take(2)->get(),
+
+            //suggest new friends to user
+             'suggested_friends' => User::whereNotIn("id", $friend_ids)
+                            ->where('id', '!=', auth()->id()) // Exclude the current user
+                            ->inRandomOrder()
+                            ->take(3)
+                            ->get()
+
             ])->extends("layouts.app");
 
     }

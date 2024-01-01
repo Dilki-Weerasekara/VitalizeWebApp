@@ -36,7 +36,7 @@
                                 class="mt-2 d-flex align-items-center justify-content-center position-absolute right-15 top-10 me-2">
                                 @if (auth()->id() == $user->id)
                                     <a href="{{ route('settings') }}"
-                                        class="p-3 text-white bg-primary d-none d-lg-block z-index-1 rounded-3 font-xsssss text-uppercase fw-700 ls-3">Edit</a> 
+                                        class="p-3 text-white bg-primary d-none d-lg-block z-index-1 rounded-3 font-xsssss text-uppercase fw-700 ls-3">Edit</a>
                                 @elseif (App\Models\Friend::Where([
                                     'friend_id' => auth()->id(),
                                     'user_id' => $user->id,
@@ -69,7 +69,7 @@
                                         class="p-3 text-white bg-success d-none d-lg-block z-index-1 rounded-3 font-xsssss text-uppercase fw-700 ls-3">UnFriend</button>
                                         @else
                                         <button
-                                        wire:click="addfriend({{ $uer->uuid }})"
+                                        wire:click="addfriend({{ $user->uuid }})"
                                         class="p-3 text-white bg-success d-none d-lg-block z-index-1 rounded-3 font-xsssss text-uppercase fw-700 ls-3">ADD FRIEND</button>
                                 @endif
                                 <a href="/chat/{{ $user->id }}"
