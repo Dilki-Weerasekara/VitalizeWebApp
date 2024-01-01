@@ -19,9 +19,7 @@
         <button class="nav-menu me-0 ms-2"></button>
     </div>
 
-    <link href="
-https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.min.css
-" rel="stylesheet">
+
 
     {{-- <form action="{{ route('search') }}" method="GET" class="float-left header-search"> --}}
         <div class="mb-0 form-group icon-input">
@@ -70,17 +68,24 @@ https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.min.css
         @empty
             <h1 class="text-center text-danger">No Notifications Found!</h1>
         @endforelse
-    {{-- End of the Notification section --}}
-
     </div>
+     {{-- End of the Notification section --}}
+
+
+
     {{-- <a href="{{ route('chat') }}" class="p-2 text-center ms-3"><i class="text-current font-xl" --}}
             style="margin-top: -10px">{!! $icons->getIcon('message-circle') !!}</i></a>
+
+            {{-- css file for the ti-check class --}}
+        <link href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.min.css" rel="stylesheet">
+
+    {{-- Start Menu settings to change the default colours themes --}}
     <div class="p-2 text-center cursor-pointer ms-3 position-relative dropdown-menu-icon menu-icon">
         <i class="text-current animation-spin d-inline-block font-xl"
             style="margin-top: -10px">{!! $icons->getIcon('settings') !!}</i>
-        {{-- @livewire('menu-setting') --}}
+        @livewire('menu-setting')
     </div>
-
+    {{-- End of Menu settings to change the default colours themes --}}
 
     <a href="#" class="p-0 ms-3 menu-icon"><img
             src="{{ auth()->user()->profile ? asset('storage') . '/' . auth()->user()->profile : 'images/user-8.png' }}"
