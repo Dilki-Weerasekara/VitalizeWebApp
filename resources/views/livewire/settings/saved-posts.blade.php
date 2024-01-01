@@ -23,16 +23,16 @@
 
                     <div class="card w-100 border-0 shadow-none bg-transparent mt-5">
                         <div id="" class="accordion mb-0">
-                            @forelse ($posts as $post)
+                            @forelse ($posts as $post) {{-- Loop through each post in the 'posts' collection --}}
                                 <a
-                                    href="{{ route('single-post', ['useruuid' => $post->user->uuid, 'postuuid' => $post->post->uuid]) }}">
+                                    href="{{ route('single-post', ['useruuid' => $post->user->uuid, 'postuuid' => $post->post->uuid]) }}">  {{-- Hyperlink to the single post view with parameters --}}
                                     <div class="card shadow-xss">
                                         <div class="card-header" id="">
                                             <h5 class="mb-0">
-                                                @if ($post->post->content)
-                                                    {{ Str::limit($post->post->content, $limit = 90, $end = '...') }}
+                                                @if ($post->post->content) {{-- Check if the post has content --}}
+                                                    {{ Str::limit($post->post->content, $limit = 90, $end = '...') }}  {{-- Display the content limited to 90 characters, appending '...' if it's longer --}}
                                                 @else
-                                                    Click here to view this post
+                                                    Click here to view this post {{-- Display a placeholder text if there is no content --}}
                                                 @endif
 
                                             </h5>
