@@ -13,7 +13,7 @@ use App\Livewire\Page;
 use App\Livewire\Pages;
 use App\Livewire\Profile;
 use App\Livewire\Search;
-use App\Livewire\Settings\AccountInformaiton;
+use App\Livewire\Settings\AccountInformation;
 use App\Livewire\Settings\Help;
 use App\Livewire\Settings\Notifications;
 use App\Livewire\Settings\PasswordUpdate;
@@ -51,6 +51,17 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
     Route::get('/groups', Groups::class)->name("groups");
     Route::get('/groups/{uuid}', Group::class)->name("group");
     Route::get('/group/create', CreateGroup::class)->name("create-group");
+
+      // users settings
+    Route::prefix('user-profile')->group(function () {
+        Route::get('/', Setting::class)->name("settings");
+        Route::get('/settings', AccountInformation::class)->name("settings.account_information");  //account information
+        Route::get('/saved-items', SavedPosts::class)->name("settings.saved_posts");  //saved posts
+        Route::get('/reset-password', PasswordUpdate::class)->name("settings.password_update"); //password change
+        Route::get('/help', Help::class)->name("settings.help");  //helpdesk
+    });
+
+
 });
 
 Route::get('/dashboard', function () {
