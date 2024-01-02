@@ -21,7 +21,7 @@
 
 
 
-    {{-- <form action="{{ route('search') }}" method="GET" class="float-left header-search"> --}}
+    <form action="{{ route('search') }}" method="GET" class="float-left header-search">
         <div class="mb-0 form-group icon-input">
             <i class=" font-sm text-grey-400" style="margin-top: -10px">{!! $icons->getIcon('search') !!}</i>
             <input type="text" name="query" placeholder="Start typing to search.."
