@@ -73,7 +73,7 @@
 
 
 
-    {{-- <a href="{{ route('chat') }}" class="p-2 text-center ms-3"><i class="text-current font-xl" --}}
+    <a href="{{ route('chat') }}" class="p-2 text-center ms-3"><i class="text-current font-xl" 
             style="margin-top: -10px">{!! $icons->getIcon('message-circle') !!}</i></a>
 
             {{-- css file for the ti-check class --}}

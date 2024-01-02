@@ -22,6 +22,7 @@ class User extends Authenticatable
         "uuid",
         'first_name',
         'last_name',
+        'name',
         'dob',
         'profile_type',
         'profession',

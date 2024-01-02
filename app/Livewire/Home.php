@@ -136,9 +136,10 @@ class Home extends Component
 
         // Dispatch a browser event to notify the current user that the friend request
         // has been successfully accepted. This is for immediate feedback on the user interface.
-        $this->dispatchBrowserEvent('alert', [
-            "type" => "success", "message" => "friend request accepted"
-        ]);
+
+        // $this->dispatchBrowserEvent('alert', [
+        //     "type" => "success", "message" => "friend request accepted"
+        // ]);
     }
 
 
@@ -180,9 +181,10 @@ class Home extends Component
 
         // Dispatch a browser event to notify the current user that the friend request
         // has been successfully rejected. This provides immediate feedback on the user interface.
-        $this->dispatchBrowserEvent('alert', [
-            "type" => "success", "message" => "friend request rejected"
-        ]);
+
+        // $this->dispatchBrowserEvent('alert', [
+        //     "type" => "success", "message" => "friend request rejected"
+        // ]);
     }
 
 
@@ -232,10 +234,11 @@ class Home extends Component
 
         // Dispatch a browser event to show a success message.
         // This provides immediate feedback to the user that the item has been saved.
-        $this->dispatch('alert', [
-            'type' => 'success',
-            'message' => 'Item Saved'
-        ]);
+        
+        // $this->dispatch('alert', [
+        //     'type' => 'success',
+        //     'message' => 'Item Saved'
+        // ]);
 
     }
 
