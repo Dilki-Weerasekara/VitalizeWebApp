@@ -58,16 +58,49 @@
                                         <i class=" text-grey-500 me-3 font-lg" style="margin-top: -10px">{!! $icons->getIcon('bookmark') !!}</i>
                                         <h4 class="fw-600 text-grey-900 font-xssss mt-0 me-4">Save Link <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Add this to your saved items</span></h4>
                                     </div>
-                                    <div class="card-body p-0 d-flex mt-2">
-                                        <i class=" text-grey-500 me-3 font-lg" style="margin-top: -10px">{!! $icons->getIcon('alert-octagon') !!}</i>
-                                        <h4 class="fw-600 text-grey-900 font-xssss mt-0 me-4">Hide all from Group <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Save to your saved items</span></h4>
+
+                                    {{-- Start the hide all from section --}}
+
+                                    {{-- Hide group posts section --}}
+                                    @if ($post->is_group_post)
+                                    <div wire:click="hide_all_from('group',{{ $post->group->id }})"
+                                        class="p-0 mt-2 card-body d-flex" style="cursor: pointer">
+                                        <i class=" text-grey-500 me-3 font-lg"
+                                            style="margin-top: -10px">{!! $icons->getIcon('alert-octagon') !!}</i>
+                                        <h4 class="mt-0 fw-600 text-grey-900 font-xssss me-4">Hide all posts of this
+                                            {{ $post->group->name }}
+                                            <span class="mt-1 d-block font-xsssss fw-500 lh-3 text-grey-500">Remove from your wall</span>
+                                        </h4>
                                     </div>
-                                    <div class="card-body p-0 d-flex mt-2">
-                                        <i class=" text-grey-500 me-3 font-lg" style="margin-top: -10px">{!! $icons->getIcon('lock') !!}</i>
-                                        <h4 class="fw-600 mb-0 text-grey-900 font-xssss mt-0 me-4">Unfollow Group <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Save to your saved items</span></h4>
+
+                                    {{-- Hide page posts section --}}
+                                @elseif ($post->is_page_post)
+                                    <div wire:click="hide_all_from('page',{{ $post->page->id }})"
+                                        class="p-0 mt-2 card-body d-flex" style="cursor: pointer">
+                                        <i class=" text-grey-500 me-3 font-lg"
+                                            style="margin-top: -10px">{!! $icons->getIcon('alert-octagon') !!}</i>
+                                        <h4 class="mt-0 fw-600 text-grey-900 font-xssss me-4">Hide all posts of this
+                                            {{ $post->page->name }}
+                                            <span class="mt-1 d-block font-xsssss fw-500 lh-3 text-grey-500">Remove from your wall</span>
+                                        </h4>
                                     </div>
+                                @else
+                                    {{-- Hide the friends posts --}}
+                                    <div wire:click="hide_all_from('user',{{ $post->user->id }})"
+                                        class="p-0 mt-2 card-body d-flex" style="cursor: pointer">
+                                        <i class=" text-grey-500 me-3 font-lg"
+                                            style="margin-top: -10px">{!! $icons->getIcon('alert-octagon') !!}</i>
+                                        <h4 class="mt-0 fw-600 text-grey-900 font-xssss me-4">Hide all posts of this
+                                            {{ $post->user->username }}
+                                            <span class="mt-1 d-block font-xsssss fw-500 lh-3 text-grey-500">Remove from your wall</span>
+                                        </h4>
+                                    </div>
+                                @endif
+                                {{-- End of the hide all from section --}}
                                 </div>
                             </div>
+
+
                             <div class="card-body p-0 me-lg-5">
                                 <a
                                     href="{{ route('single-post', ['useruuid' => $post->user->uuid, 'postuuid' => $post->uuid]) }}">

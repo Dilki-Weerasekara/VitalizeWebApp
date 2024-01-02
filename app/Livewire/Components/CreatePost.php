@@ -109,7 +109,7 @@ class CreatePost extends Component
             'message' => 'Your action was successful!'
         ]);
 
-        return redirect()->route("home");
+       
 
     }
 

@@ -63,15 +63,17 @@ class Groups extends Component
             $group->members -= 1;
             $group->save();
             $member->delete();
-            
-            $this->dispatchBrowserEvent('alert', [
-                "type" => "success", "message" =>  " you left " . $group->name
-            ]);
+
+            // $this->dispatchBrowserEvent('alert', [
+            //     "type" => "success", "message" =>  " you left " . $group->name
+            // ]);
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
             throw $th;
         }
+
+      
     }
 
 

@@ -207,14 +207,16 @@ class Home extends Component
                 "url" => "#",
             ]);
 
-            $this->dispatchBrowserEvent('alert', [
-                "type" => "success", "message" =>  " you joined " . $group->name
-            ]);
+            // $this->dispatchBrowserEvent('alert', [
+            //     "type" => "success", "message" =>  " you joined " . $group->name
+            // ]);
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
             throw $th;
         }
+        return redirect()->route("groups");
+
     }
 
 
@@ -237,6 +239,50 @@ class Home extends Component
 
     }
 
+
+    //hide all posts of group/page/friends
+    public function hide_all_from($type, $id)
+    {
+        if ($type == "user") {
+              // Fetch the friendship relation with the given user ID.
+            $friendship = Friend::where("user_id", $id)->orWhere("friend_id", $id)->first();
+            if ($friendship) {
+                 // If a friendship exists, change its status to 'rejected' and save.
+                $friendship->status = "rejected";
+                $friendship->save();
+            } else {
+                // If no friendship exists, add the user ID to a list of users to hide.
+                $this->hide_user_list[] = $id;
+            }
+        } elseif ($type == "group") {
+            // Handle hiding a group by setting the member status to 'inactive'.
+            $member = GroupMember::where(["group_id" => $id, "user_id" => auth()->id()])->first();
+            if ($member) {
+                $member->status = "inactive";
+                $member->save();
+            }
+        } elseif ($type == "page") {
+             // Handle hiding a page by deleting the page like record.
+            $member = PageLike::where(["page_id" => $id, "user_id" => auth()->id()])->first();
+            if ($member) {
+                $member->delete();
+            }
+        }
+
+         // display the notifications in home page
+         Notification::create([
+            "type" => "hide_post",
+            "user_id" => auth()->id(),
+            "message" =>  "Hide all posts of $type successfully.",
+            "url" => "#",
+        ]);
+
+        return redirect()->route("home");
+
+    }
+
+
+
     public function render()
     {
 
@@ -247,9 +293,25 @@ class Home extends Component
         $friend_ids = Friend::where(["user_id" => auth()->id()])->pluck("friend_id");
 
 
+        // Retrieve only friends' posts to display on the home wall
+        // Fetching friends where the current user is either the 'user_id' or 'friend_id' and the friendship is accepted.
+        // Convert the result to an array.
+      $all_friends_aids = Friend::where(["user_id" => auth()->id(), "status" => "accepted"])->OrWhere(['friend_id' => auth()->id(), "status" => "accepted"])->get(["user_id", "friend_id"])->toArray();
+
+      $filtered_friends_ids = [];  // Initialize an empty array to store the filtered friend IDs.
+
+      // Loop through each item in the fetched friend relationships.
+      foreach ($all_friends_aids as $item) {
+        // If the 'user_id' in the item is the same as the authenticated user's ID, add the 'friend_id' to the filtered list.
+        // Otherwise, add the 'user_id'. This effectively collects the IDs of the user's friends.
+          $filtered_friends_ids[] = ($item['user_id'] == auth()->id() ? $item['friend_id'] : $item['user_id']);
+      }
+
+      $posts = Post::where("status","published")->latest()->paginate($this->paginate_no);
+
         return view('livewire.home',[
 
-            'posts'=>Post::with("user")->latest()->paginate($this->paginate_no),
+            'posts' => $posts,
 
             'friend_requests' => Friend::where(["friend_id" => auth()->id(), "status" => "pending"])->with("user")->latest()->take(5)->get(),
             //suggest the new groups for user
