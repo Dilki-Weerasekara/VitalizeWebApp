@@ -40,12 +40,12 @@
                                 <br>
 
                                 {{-- Dropdown --}}
-                                <div class="dropdown-center d-flex justify-content-center">
+                                <div class="dropdown d-flex justify-content-center">
                                     <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Select your Favourite Category...
                                     </button>
-                                    <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="/user_select_naturevideos">Rainfall Serenity</a></li>
+                                    <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ route('user_select_rainfall')}}">Rainfall Serenity</a></li>
                                     <li><a class="dropdown-item" href="/user_select_garden&blossoms">Gardens and Blooms</a></li>
                                     <li><a class="dropdown-item" href="/user_select_waterfalls">Waterfalls</a></li>
                                     <li><a class="dropdown-item" href="/user_select_skystars">Sky and Stars</a></li>
@@ -65,7 +65,7 @@
                                         <p class="card-title d-flex justify-content-center">Rainfall Serenity</p>
                                         </div>
                                         <div class="card-footer ">
-                                            <a class="btn btn-dark col-12" role="button" href="/user_select_naturevideos">Click Here to Explore More...</a>
+                                            <a class="btn btn-dark col-12" role="button" href="{{ route('user_select_rainfall') }}">Click Here to Explore More...</a>
                                         </div>
                                     </div>
                                     </div>
