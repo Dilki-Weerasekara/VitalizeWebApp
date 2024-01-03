@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Livewire\ExploreNature;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
 use App\Livewire\SinglePost;
@@ -42,13 +43,17 @@ use Illuminate\Support\Env;
 
  //dont allow users to see anything until they are authorize and verify the email or mobile verification after login.
 Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
-    Route::get('/', Home::class)->name("home");
+    Route::get('/', Home::class)->name("home");  //home page or dashboard page
     Route::get('/videos', VideoPosts::class)->name("videos");   //videopost route
     Route::get('/explore', Peoples::class)->name("explore");   //explore or find the friends
     Route::get('/search', Search::class)->name("search");    //search bar
     Route::get('/user/{uuid}', User::class)->name("user");  // user timeline
     Route::get('/post/{useruuid}/{postuuid}', SinglePost::class)->name("single-post");   //view a wallpost as single page post
 
+    //user resource pages
+     Route::get('/explore_nature', ExploreNature::class)->name("nature");  //nature video section
+
+    //group sections
     Route::get('/groups', Groups::class)->name("groups");
     Route::get('/groups/{uuid}', Group::class)->name("group");
     Route::get('/group/create', CreateGroup::class)->name("create-group");
@@ -65,15 +70,15 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
 
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 
 require __DIR__.'/auth.php';
