@@ -20,20 +20,12 @@
                     </i><span
                         class="mb-0 text-current d-inline-block fredoka-font ls-3 fw-600 font-xxl logo-text">{{ config('app.name') }}
                     </span> </a>
-                <a href="#" class="mob-menu ms-auto me-2 chat-active-btn"><i
-                        class="feather-message-circle text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
-                <a href="default-video.html" class="mob-menu me-2"><i
-                        class="feather-video text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
-                <a href="#" class="me-2 menu-search-icon mob-menu"><i
-                        class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
-                <button class="nav-menu me-0 ms-2"></button>
+
 
                 <a href="{{ route('login') }}"
-                    class="p-3 text-center text-white header-btn d-none d-lg-block bg-dark fw-500 font-xsss ms-auto w100 lh-20 rounded-xl"
-                    data-bs-toggle="modal" data-bs-target="#Modallogin">Login</a>
+                    class="p-3 text-center text-white header-btn d-none d-lg-block bg-dark fw-500 font-xsss ms-auto w100 lh-20 rounded-xl">Login</a>
                 <a href="{{ route('register') }}"
-                    class="p-3 text-center text-white bg-current header-btn d-none d-lg-block fw-500 font-xsss ms-2 w100 lh-20 rounded-xl"
-                    data-bs-toggle="modal" data-bs-target="#Modalregister">Register</a>
+                    class="p-3 text-center text-white bg-current header-btn d-none d-lg-block fw-500 font-xsss ms-2 w100 lh-20 rounded-xl">Register</a>
 
             </div>
 
@@ -95,6 +87,15 @@
                                     class="style2-input ps-5 form-control text-grey-900 font-xsss fw-600"
                                     placeholder="Your Last Name">
                                 <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
+
+                            </div>
+
+                            <div class="mb-3 form-group icon-input">
+                                <i class="font-sm text-grey-500 pe-0" style="margin-top: -10px">{!! $icons->getIcon('user') !!}</i>
+                                <input type="text" required name="name" value="{{ old('name') }}"
+                                    class="style2-input ps-5 form-control text-grey-900 font-xsss fw-600"
+                                    placeholder="Your Full Name">
+                                <x-input-error :messages="$errors->get('name')" class="mt-2" />
 
                             </div>
 

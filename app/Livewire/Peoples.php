@@ -12,7 +12,7 @@ use Livewire\WithPagination;
 class Peoples extends Component
 {
     use WithPagination;
-    public $paginator = 10;
+    public $paginator = 20;
     public $search;
 
     public $listeners = [

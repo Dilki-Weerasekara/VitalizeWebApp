@@ -34,6 +34,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
+            'name'=> 'required|string|max:255',
             'profileType' => 'required',
             'profession' => 'required|string|max:255',
             'username' => 'required|string|max:255',
@@ -56,6 +57,7 @@ class RegisteredUserController extends Controller
             'uuid'=>Str::uuid(),
             'first_name' => $request->first_name, //database table column name = UI name
             'last_name' => $request->last_name,
+            'name' => $request->name,
             'profile_type'=>  $request-> profileType,
             'profession'=>  $request-> profession,
             'username' => $request->username,
