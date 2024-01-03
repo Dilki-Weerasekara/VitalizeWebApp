@@ -18,7 +18,7 @@
                         class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">{{ config('app.name') }}
                     </span> </a>
 
-            
+
                 <a href="{{ route('login') }}"
                     class="header-btn d-none d-lg-block bg-dark fw-500 text-white font-xsss p-3 ms-auto w100 text-center lh-20 rounded-xl"
                     >Login</a>
@@ -61,7 +61,7 @@
 
                                 <i class="font-sm text-grey-500 pe-0" style="margin-top: -10px">{!! $icons->getIcon('lock') !!}</i>
                             </div>
-                            <div class="form-check text-left mb-3">
+                            {{-- <div class="form-check text-left mb-3">
                                 <input type="checkbox" name="remember" class="form-check-input mt-2" id="remember">
                                 <label class="form-check-label font-xsss text-grey-500" for="remember">Remember
                                     me</label>
@@ -70,7 +70,7 @@
                                     {{ __('Forgot your password?') }}
                                 </a>
 
-                            </div>
+                            </div> --}}
 
                             <div class="col-sm-12 p-0 text-left">
                                 <div class="form-group mb-1"><button type="submit"
