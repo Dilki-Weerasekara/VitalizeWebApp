@@ -23,8 +23,13 @@
 
                     {{-- <li><a href="user-page.html" class="nav-content-bttn open-font"><i
                                 class=" btn-round-md bg-primary-gradiant me-3"
-                                style="margin-top: -10px">{!! $icons->getIcon('user') !!}</i><span>Author Profile </span></a> --}}
-                    </li>
+                                style="margin-top: -10px">{!! $icons->getIcon('user') !!}</i><span>Author Profile </span></a>
+                    </li> --}}
+
+                    {{-- <li><a href="user-page.html" class="nav-content-bttn open-font"><i
+                        class=" btn-round-md bg-primary-gradiant me-3"
+                        style="margin-top: -10px">{!! $icons->getIcon('user') !!}</i><span>Author Profile </span></a>
+                    </li> --}}
                 </ul>
             </div>
 
