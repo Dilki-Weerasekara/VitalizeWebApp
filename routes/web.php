@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Livewire\ExploreNature;
 use App\Livewire\GardenBlossoms;
 use App\Livewire\RainfallSerenity;
+use App\Livewire\Waterfalls;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
 use App\Livewire\SinglePost;
@@ -55,7 +56,8 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
     //user resource pages
      Route::get('/explore_nature', ExploreNature::class)->name("nature");  //nature video section
      Route::get('/select_rainfall', RainfallSerenity::class)->name("user_select_rainfall");  //rainfall video section
-     Route::get('/select_garden&blossoms', GardenBlossoms::class)->name("user_select_garden&blossoms"); //garden and blossoms video section
+     Route::get('/select_garden&blossoms', GardenBlossoms::class)->name("user_select_garden&blossoms");//garden and blossoms video section
+     Route::get('/select_waterfalls', Waterfalls::class)->name("user_select_waterfalls"); //waterfalls page
 
     //group sections
     Route::get('/groups', Groups::class)->name("groups");
