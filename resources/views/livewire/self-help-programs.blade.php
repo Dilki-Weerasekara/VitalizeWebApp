@@ -48,7 +48,7 @@
                                   <li><a class="dropdown-item" href="{{ route('user_cognitive_exercises') }}">Cognitive Behavioral Therapy Exercises</a></li>
                                   <li><a class="dropdown-item" href="{{ route('user_mindfulness_practices') }}">Mindfulness Practices</a></li>
                                   <li><a class="dropdown-item" href="{{ route('user_awareness_programs') }}">Awareness Programs</a></li>
-                                  <li><a class="dropdown-item" href="/user_good_practices">Good Practices to Relieve Stress</a></li>
+                                  <li><a class="dropdown-item" href="{{ route('user_good_practices') }}">Good Practices to Relieve Stress</a></li>
                                 </ul>
                             </div>
 
@@ -97,7 +97,7 @@
                                         <p class="card-title d-flex justify-content-center">Good Practices to Relieve Stress </p>
                                       </div>
                                       <div class="card-footer ">
-                                        <a class="btn btn-warning col-12" href="/user_good_practices" role="button">Click Here to Explore More...</a>
+                                        <a class="btn btn-warning col-12" href="{{ route('user_good_practices') }}" role="button">Click Here to Explore More...</a>
                                       </div>
                                     </div>
                                 </div>

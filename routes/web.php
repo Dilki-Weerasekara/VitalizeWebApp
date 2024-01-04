@@ -7,6 +7,7 @@ use App\Livewire\EnchantedForest;
 use App\Livewire\ExploreNature;
 use App\Livewire\ExploreNature2;
 use App\Livewire\GardenBlossoms;
+use App\Livewire\GoodPracticesRelieveStress;
 use App\Livewire\LakesPonds;
 use App\Livewire\MindfulnessPractices;
 use App\Livewire\MusicRelaxation;
@@ -82,6 +83,7 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
      Route::get('/cognitive_exercises', CognitiveBehavioralTherapy::class)->name("user_cognitive_exercises"); //coginitive behavioural page
      Route::get('/mindfulness_practices', MindfulnessPractices::class)->name("user_mindfulness_practices"); //mindfulness page
      Route::get('/awareness_programs', AwarenessPrograms::class)->name("user_awareness_programs"); //awarness programs
+     Route::get('/good_practices', GoodPracticesRelieveStress::class)->name("user_good_practices"); //good practices page
 
 
     //group sections
