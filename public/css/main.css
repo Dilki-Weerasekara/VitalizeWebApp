@@ -148,16 +148,16 @@ h1{
 
 /* user_mindfulness_practices_intro_video */
 .intro_video{
-    background-color:rgb(249, 231, 159);
+    background-color:rgb(82, 21, 21);
     padding: 2rem 4rem;
 }
 
 /* user__mindfulness_practices_flip_cards */
 .flip-card {
     background-color: transparent;
-    width: 300px;
-    height: 300px;
-    border: 1px solid #f1f1f1;
+    width: 330px;
+    height: 330px;
+    /* border: 1px solid #f1f1f1; */
     perspective: 1000px;
 
 }
@@ -198,7 +198,7 @@ h1{
 
 /* user_mindfulness_practices_last_video */
 .final_video{
-    background-color:rgb(209, 242, 235);
+    background-color:rgb(11, 16, 158);
     padding: 2rem 4rem;
 }
 

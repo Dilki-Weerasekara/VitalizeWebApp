@@ -7,6 +7,7 @@ use App\Livewire\ExploreNature;
 use App\Livewire\ExploreNature2;
 use App\Livewire\GardenBlossoms;
 use App\Livewire\LakesPonds;
+use App\Livewire\MindfulnessPractices;
 use App\Livewire\MusicRelaxation;
 use App\Livewire\RainfallSerenity;
 use App\Livewire\SeasideTranquility;
@@ -75,9 +76,11 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
      Route::get('/select_lakes', LakesPonds::class)->name("user_select_lakes"); //lake and ponds page
 
      Route::get('/music', MusicRelaxation::class)->name("music"); //music page
-     
+
      Route::get('/self_help', SelfHelpPrograms::class)->name("self_help"); //self help programs page
      Route::get('/cognitive_exercises', CognitiveBehavioralTherapy::class)->name("user_cognitive_exercises"); //coginitive behavioural page
+     Route::get('/mindfulness_practices', MindfulnessPractices::class)->name("user_mindfulness_practices"); //mindfulness page
+
 
 
     //group sections
