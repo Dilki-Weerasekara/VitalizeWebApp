@@ -44,15 +44,15 @@
                                 <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Select your Favourite Category...
                                 </button>
-                                <ul class="dropdown-menu dropdown-menu-dark">
-                                  <li><a class="dropdown-item" href="/user_select_naturevideos">Rainfall Serenity</a></li>
-                                  <li><a class="dropdown-item" href="/user_select_garden&blossoms">Gardens and Blooms</a></li>
-                                  <li><a class="dropdown-item" href="/user_select_waterfalls">Waterfalls</a></li>
-                                  <li><a class="dropdown-item" href="/user_select_skystars">Sky and Stars</a></li>
-                                  <li><a class="dropdown-item" href="/user_select_seaside">Seaside Tranquility</a></li>
-                                  <li><a class="dropdown-item" href="/user_select_forest">Enchanted Forest</a></li>
-                                  <li><a class="dropdown-item" href="/user_select_animals">Wildlife and Animals</a></li>
-                                  <li><a class="dropdown-item" href="/user_select_lakes">Lakes and Ponds</a></li>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ route('user_select_rainfall')}}">Rainfall Serenity</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user_select_garden&blossoms') }}">Gardens and Blooms</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user_select_waterfalls') }}">Waterfalls</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user_select_skystars') }}">Sky and Stars</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user_select_seaside') }}">Seaside Tranquility</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user_select_forest') }}">Enchanted Forest</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user_select_animals') }}">Wildlife and Animals</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user_select_lakes') }}">Lakes and Ponds</a></li>
                                 </ul>
                             </div>
 
@@ -101,7 +101,7 @@
                                         <p class="card-title d-flex justify-content-center">Lakes and Ponds</p>
                                       </div>
                                       <div class="card-footer ">
-                                        <a class="btn btn-dark col-12" role="button" href="/user_select_lakes">Click Here to Explore More...</a>
+                                        <a class="btn btn-dark col-12" role="button" href="{{ route('user_select_lakes') }}">Click Here to Explore More...</a>
                                       </div>
                                     </div>
                                 </div>

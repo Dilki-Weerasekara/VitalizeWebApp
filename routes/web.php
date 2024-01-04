@@ -5,6 +5,7 @@ use App\Livewire\EnchantedForest;
 use App\Livewire\ExploreNature;
 use App\Livewire\ExploreNature2;
 use App\Livewire\GardenBlossoms;
+use App\Livewire\LakesPonds;
 use App\Livewire\RainfallSerenity;
 use App\Livewire\SeasideTranquility;
 use App\Livewire\SkyStars;
@@ -68,6 +69,8 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
      Route::get('/explore_nature2', ExploreNature2::class)->name("nature2");  //nature video section
      Route::get('/select_forest', EnchantedForest::class)->name("user_select_forest"); //Forest page
      Route::get('/select_animals', WildlifeAnimals::class)->name("user_select_animals"); //WildAnimals page
+     Route::get('/select_lakes', LakesPonds::class)->name("user_select_lakes"); //lake and ponds page
+
 
 
     //group sections

@@ -52,7 +52,7 @@
                                     <li><a class="dropdown-item" href="{{ route('user_select_seaside') }}">Seaside Tranquility</a></li>
                                     <li><a class="dropdown-item" href="{{ route('user_select_forest') }}">Enchanted Forest</a></li>
                                     <li><a class="dropdown-item" href="{{ route('user_select_animals') }}">Wildlife and Animals</a></li>
-                                    <li><a class="dropdown-item" href="/user_select_lakes">Lakes and Ponds</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user_select_lakes') }}">Lakes and Ponds</a></li>
                                     </ul>
                                 </div>
 
