@@ -69,7 +69,7 @@
 
                                 </h4>
 
-                                <a href="#" class="ms-auto" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"><i class="ti-more-alt text-grey-900 btn-round-md bg-greylight font-xss"></i></a> 
+                                <a href="#" class="ms-auto" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"><i class="ti-more-alt text-grey-900 btn-round-md bg-greylight font-xss"></i></a>
 
                                 <div class="dropdown-menu dropdown-menu-end p-4 rounded-xxl border-0 shadow-lg" aria-labelledby="dropdownMenu2">
                                     <div class="card-body p-0 d-flex" style="cursor: pointer"
@@ -767,23 +767,40 @@
 
                     <div class="card w-100 shadow-xss rounded-xxl border-0 mb-3">
                         <div class="card-body d-flex align-items-center  p-4">
-                            <h4 class="fw-700 mb-0 font-xssss text-grey-900">Event</h4>
+                            <h4 class="fw-700 mb-0 font-xssss text-grey-900">Crisis Helplines and Hotlines</h4>
                             <a href="default-event.html" class="fw-600 ms-auto font-xssss text-primary">See all</a>
                         </div>
-                        <div class="card-body d-flex pt-0 ps-4 pe-4 pb-3 overflow-hidden">
-                            <div class="bg-success me-2 p-3 rounded-xxl"><h4 class="fw-700 font-lg ls-3 lh-1 text-white mb-0"><span class="ls-1 d-block font-xsss text-white fw-600">FEB</span>22</h4></div>
-                            <h4 class="fw-700 text-grey-900 font-xssss mt-2">Meeting with clients <span class="d-block font-xsssss fw-500 mt-1 lh-4 text-grey-500">41 madison ave, floor 24 new work, NY 10010</span> </h4>
+
+                        <div class="card border-danger mb-3 ms-3 me-3">
+                            <div class="card-header d-flex justify-content-center"><h2>24/7 Support</h2></div>
+                            <div class="card-body text-danger">
+                              <h5 class="card-title">Samaritans</h5>
+                              <p class="card-text">Call 116 123 <br> Email jo@samaritans.org </p>
+                              <h5 class="card-title">Shout</h5>
+                              <p>Text 'SHOUT' to 85258 for confidential and anonymous support.</p>
+                            </div>
                         </div>
 
-                        <div class="card-body d-flex pt-0 ps-4 pe-4 pb-3 overflow-hidden">
-                            <div class="bg-warning me-2 p-3 rounded-xxl"><h4 class="fw-700 font-lg ls-3 lh-1 text-white mb-0"><span class="ls-1 d-block font-xsss text-white fw-600">APR</span>30</h4></div>
-                            <h4 class="fw-700 text-grey-900 font-xssss mt-2">Developer Programe <span class="d-block font-xsssss fw-500 mt-1 lh-4 text-grey-500">41 madison ave, floor 24 new work, NY 10010</span> </h4>
+                        <div class="card border-danger mb-3 ms-3 me-3">
+                            <div class="card-header d-flex justify-content-center"><h2>Suicide Prevention</h2></div>
+                            <div class="card-body text-danger">
+                              <h5 class="card-title">National Suicide Prevention Helpline UK</h5>
+                              <p class="card-text">Call 0800 689 5652 </p>
+                              <h5 class="card-title">Papyrus HOPELINEUK</h5>
+                              <p>0800 068 4141, email pat@papyrus-uk.org, or text 07786 209 697</p>
+                            </div>
                         </div>
 
-                        <div class="card-body d-flex pt-0 ps-4 pe-4 pb-3 overflow-hidden">
-                            <div class="bg-primary me-2 p-3 rounded-xxl"><h4 class="fw-700 font-lg ls-3 lh-1 text-white mb-0"><span class="ls-1 d-block font-xsss text-white fw-600">APR</span>23</h4></div>
-                            <h4 class="fw-700 text-grey-900 font-xssss mt-2">Aniversary Event <span class="d-block font-xsssss fw-500 mt-1 lh-4 text-grey-500">41 madison ave, floor 24 new work, NY 10010</span> </h4>
+                        <div class="card border-danger mb-3 ms-3 me-3">
+                            <div class="card-header d-flex justify-content-center"><h2>Mental Health Support</h2></div>
+                            <div class="card-body text-danger">
+                              <h5 class="card-title">SANEline</h5>
+                              <p class="card-text"> Available from 4.30pm to 10.30pm every day at 0300 304 7000.</p>
+                              <h5 class="card-title">Campaign Against Living Miserably (CALM)</h5>
+                              <p>Available from 5pm to midnight every day at 0800 58 58 58</p>
+                            </div>
                         </div>
+
 
                     </div>
                 </div>
