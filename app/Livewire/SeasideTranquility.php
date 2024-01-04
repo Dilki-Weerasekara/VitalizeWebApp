@@ -4,10 +4,10 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class SkyStars extends Component
+class SeasideTranquility extends Component
 {
     public function render()
     {
-        return view('livewire.sky-stars')->extends("layouts.app");
+        return view('livewire.seaside-tranquility');
     }
 }
