@@ -22,14 +22,25 @@
                                 style="margin-top: -10px">{!! $icons->getIcon('sun') !!}</i><span>Explore Nature</span></a></li>
 
                      <li><a href="{{ route('music') }}" class="nav-content-bttn open-font"><i
-                                class=" btn-round-md bg-red-gradiant me-3"
+                                class=" btn-round-md bg-mini-gradiant me-3"
                                 style="margin-top: -10px">{!! $icons->getIcon('music') !!}</i><span>Music Relaxation </span></a>
+                    </li>
+
+                    <li><a href="{{ route('self_help') }}" class="nav-content-bttn open-font"><i
+                        class=" btn-round-md bg-blue-gradiant me-3"
+                        style="margin-top: -10px">{!! $icons->getIcon('heart') !!}</i><span>Self-Help Programs</span></a>
                     </li>
 
                     {{-- <li><a href="user-page.html" class="nav-content-bttn open-font"><i
                         class=" btn-round-md bg-primary-gradiant me-3"
                         style="margin-top: -10px">{!! $icons->getIcon('user') !!}</i><span>Author Profile </span></a>
                     </li> --}}
+
+                    {{-- <li><a href="user-page.html" class="nav-content-bttn open-font"><i
+                        class=" btn-round-md bg-primary-gradiant me-3"
+                        style="margin-top: -10px">{!! $icons->getIcon('user') !!}</i><span>Author Profile </span></a>
+                    </li> --}}
+
                 </ul>
             </div>
 

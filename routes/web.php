@@ -9,6 +9,7 @@ use App\Livewire\LakesPonds;
 use App\Livewire\MusicRelaxation;
 use App\Livewire\RainfallSerenity;
 use App\Livewire\SeasideTranquility;
+use App\Livewire\SelfHelpPrograms;
 use App\Livewire\SkyStars;
 use App\Livewire\Waterfalls;
 use App\Livewire\WildlifeAnimals;
@@ -73,6 +74,8 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
      Route::get('/select_lakes', LakesPonds::class)->name("user_select_lakes"); //lake and ponds page
 
      Route::get('/music', MusicRelaxation::class)->name("music"); //music page
+     Route::get('/self_help', SelfHelpPrograms::class)->name("self_help"); //self help programs page
+    
 
     //group sections
     Route::get('/groups', Groups::class)->name("groups");
