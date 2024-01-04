@@ -77,7 +77,7 @@
                                         <p class="card-title d-flex justify-content-center">Enchanted Forest</p>
                                       </div>
                                       <div class="card-footer ">
-                                        <a class="btn btn-dark col-12" role="button" href="/user_select_forest">Click Here to Explore More...</a>
+                                        <a class="btn btn-dark col-12" role="button" href="{{ route('user_select_forest') }}">Click Here to Explore More...</a>
                                       </div>
                                     </div>
                                   </div>
@@ -110,9 +110,9 @@
                             {{-- Pagination section --}}
                             <nav aria-label="Pagination">
                                 <ul class="pagination justify-content-center mt-5 mb-3">
-                                    <li class="page-item"><a href="/user_select_nature" class="page-link">Previous</a></li>
-                                    <li class="page-item "><a href="/user_select_nature" class="page-link">1</a></li>
-                                    <li class="page-item active"><a href="/user_select_nature2" class="page-link">2</a></li>
+                                    <li class="page-item"><a href="{{ route('nature') }}" class="page-link">Previous</a></li>
+                                    <li class="page-item "><a href="{{ route('nature') }}" class="page-link">1</a></li>
+                                    <li class="page-item active"><a href="{{ route('nature2') }}" class="page-link">2</a></li>
                                     <li class="page-item disabled"><a href="" class="page-link">Next</a></li>
                                 </ul>
                             </nav>

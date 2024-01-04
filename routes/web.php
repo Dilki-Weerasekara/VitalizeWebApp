@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Livewire\EnchantedForest;
 use App\Livewire\ExploreNature;
 use App\Livewire\ExploreNature2;
 use App\Livewire\GardenBlossoms;
@@ -64,6 +65,7 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
      Route::get('/select_skystars', SkyStars::class)->name("user_select_skystars"); //SkyStars page
      Route::get('/select_seaside', SeasideTranquility::class)->name("user_select_seaside");  //Seaside page
      Route::get('/explore_nature2', ExploreNature2::class)->name("nature2");  //nature video section
+     Route::get('/select_forest', EnchantedForest::class)->name("user_select_forest"); //Forest page
 
 
     //group sections
