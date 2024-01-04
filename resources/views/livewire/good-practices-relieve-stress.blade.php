@@ -35,7 +35,7 @@
             <div class="row feed-body">
                 <div class="col-12">
                     <div class="p-4 mb-3 border-0 card w-100 shadow-xss rounded-xxl">
-                        <div class="p-0 card-body good_practices">
+                        <div class="p-3 card-body good_practices">
 
                             <h1 class="text-center mt-2">Good Practices to Relieve Stress</h1>
                             <br>

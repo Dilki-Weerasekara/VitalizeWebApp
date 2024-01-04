@@ -10,7 +10,7 @@
                     <li class="logo d-none d-xl-block d-lg-block"></li>
                     <li><a href="{{ config('app.url') }}" class="nav-content-bttn open-font"><i
                                 class=" btn-round-md bg-blue-gradiant me-3"
-                                style="margin-top: -10px">{!! $icons->getIcon('tv') !!}</i><span>Newsfeed</span></a></li>
+                                style="margin-top: -10px">{!! $icons->getIcon('tv') !!}</i><span>Dashboard</span></a></li>
 
                     <li><a href="{{ route('groups') }}" class="nav-content-bttn open-font"><i
                                 class=" btn-round-md bg-mini-gradiant me-3"
@@ -31,10 +31,10 @@
                         style="margin-top: -10px">{!! $icons->getIcon('heart') !!}</i><span>Self-Help Programs</span></a>
                     </li>
 
-                    {{-- <li><a href="user-page.html" class="nav-content-bttn open-font"><i
-                        class=" btn-round-md bg-primary-gradiant me-3"
-                        style="margin-top: -10px">{!! $icons->getIcon('user') !!}</i><span>Author Profile </span></a>
-                    </li> --}}
+                    <li><a href="{{ route('Inspirational_content') }}" class="nav-content-bttn open-font"><i
+                        class=" btn-round-md bg-mini-gradiant me-3"
+                        style="margin-top: -10px">{!! $icons->getIcon('trending-up') !!}</i><span>Motivational</span></a>
+                    </li>
 
                     {{-- <li><a href="user-page.html" class="nav-content-bttn open-font"><i
                         class=" btn-round-md bg-primary-gradiant me-3"

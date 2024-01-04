@@ -8,6 +8,7 @@ use App\Livewire\ExploreNature;
 use App\Livewire\ExploreNature2;
 use App\Livewire\GardenBlossoms;
 use App\Livewire\GoodPracticesRelieveStress;
+use App\Livewire\InspirationalContent;
 use App\Livewire\LakesPonds;
 use App\Livewire\MindfulnessPractices;
 use App\Livewire\MusicRelaxation;
@@ -85,6 +86,7 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
      Route::get('/awareness_programs', AwarenessPrograms::class)->name("user_awareness_programs"); //awarness programs
      Route::get('/good_practices', GoodPracticesRelieveStress::class)->name("user_good_practices"); //good practices page
 
+     Route::get('/Inspirational_content', InspirationalContent::class)->name("Inspirational_content");  //Inspirational_content page
 
     //group sections
     Route::get('/groups', Groups::class)->name("groups");
