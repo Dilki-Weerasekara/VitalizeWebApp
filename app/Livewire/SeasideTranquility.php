@@ -8,6 +8,6 @@ class SeasideTranquility extends Component
 {
     public function render()
     {
-        return view('livewire.seaside-tranquility');
+        return view('livewire.seaside-tranquility')->extends("layouts.app");
     }
 }

@@ -49,7 +49,7 @@
                                     <li><a class="dropdown-item" href="{{ route('user_select_garden&blossoms') }}">Gardens and Blooms</a></li>
                                     <li><a class="dropdown-item" href="{{ route('user_select_waterfalls') }}">Waterfalls</a></li>
                                     <li><a class="dropdown-item" href="{{ route('user_select_skystars') }}">Sky and Stars</a></li>
-                                    <li><a class="dropdown-item" href="/user_select_seaside">Seaside Tranquility</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user_select_seaside') }}">Seaside Tranquility</a></li>
                                     <li><a class="dropdown-item" href="/user_select_forest">Enchanted Forest</a></li>
                                     <li><a class="dropdown-item" href="/user_select_animals">Wildlife and Animals</a></li>
                                     <li><a class="dropdown-item" href="/user_select_lakes">Lakes and Ponds</a></li>
@@ -111,9 +111,9 @@
                                 <nav aria-label="Pagination">
                                     <ul class="pagination justify-content-center  mt-5 mb-3">
                                         <li class="page-item disabled"><a href="" class="page-link">Previous</a></li>
-                                        <li class="page-item active"><a href="/user_select_nature" class="page-link">1</a></li>
-                                        <li class="page-item"><a href="/user_select_nature2" class="page-link">2</a></li>
-                                        <li class="page-item"><a href="/user_select_nature2" class="page-link">Next</a></li>
+                                        <li class="page-item active"><a href="{{ route('nature') }}" class="page-link">1</a></li>
+                                        <li class="page-item"><a href="{{ route('nature2') }}" class="page-link">2</a></li>
+                                        <li class="page-item"><a href="{{ route('nature2') }}" class="page-link">Next</a></li>
                                     </ul>
                                 </nav>
 

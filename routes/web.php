@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Livewire\ExploreNature;
+use App\Livewire\ExploreNature2;
 use App\Livewire\GardenBlossoms;
 use App\Livewire\RainfallSerenity;
+use App\Livewire\SeasideTranquility;
 use App\Livewire\SkyStars;
 use App\Livewire\Waterfalls;
 use Illuminate\Support\Facades\Route;
@@ -59,7 +61,9 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
      Route::get('/select_rainfall', RainfallSerenity::class)->name("user_select_rainfall");  //rainfall video section
      Route::get('/select_garden&blossoms', GardenBlossoms::class)->name("user_select_garden&blossoms");//garden and blossoms video section
      Route::get('/select_waterfalls', Waterfalls::class)->name("user_select_waterfalls"); //waterfalls page
-    Route::get('/user_select_skystars', SkyStars::class)->name("user_select_skystars"); //SkyStars page
+     Route::get('/select_skystars', SkyStars::class)->name("user_select_skystars"); //SkyStars page
+     Route::get('/select_seaside', SeasideTranquility::class)->name("user_select_seaside");  //Seaside page
+     Route::get('/explore_nature2', ExploreNature2::class)->name("nature2");  //nature video section
 
 
     //group sections
