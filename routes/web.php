@@ -6,6 +6,7 @@ use App\Livewire\ExploreNature;
 use App\Livewire\ExploreNature2;
 use App\Livewire\GardenBlossoms;
 use App\Livewire\LakesPonds;
+use App\Livewire\MusicRelaxation;
 use App\Livewire\RainfallSerenity;
 use App\Livewire\SeasideTranquility;
 use App\Livewire\SkyStars;
@@ -71,14 +72,14 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
      Route::get('/select_animals', WildlifeAnimals::class)->name("user_select_animals"); //WildAnimals page
      Route::get('/select_lakes', LakesPonds::class)->name("user_select_lakes"); //lake and ponds page
 
-
+     Route::get('/music', MusicRelaxation::class)->name("music"); //music page
 
     //group sections
     Route::get('/groups', Groups::class)->name("groups");
     Route::get('/groups/{uuid}', Group::class)->name("group");
     Route::get('/group/create', CreateGroup::class)->name("create-group");
 
-      // users settings
+    // users settings
     Route::prefix('user-profile')->group(function () {
         Route::get('/', Setting::class)->name("settings");
         Route::get('/settings', AccountInformation::class)->name("settings.account_information");  //account information
@@ -89,16 +90,5 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
 
 
 });
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
 
 require __DIR__.'/auth.php';
