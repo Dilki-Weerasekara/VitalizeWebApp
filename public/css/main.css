@@ -104,29 +104,27 @@ h1{
 /* user_coginitive_exercises about section */
 .about{
     background-color:rgb(125, 60, 152 );
-    height: 300px;
-    padding: 4rem 8rem;
+    /* height: 300px; */
+    /* padding: 4rem 8rem; */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
     gap: 1.5rem;
-    font-size: 20px;
+    font-size: 18px;
     color: white;
 }
 
 /* user_coginitive_exercises disorders section */
 .disorders{
     background-color:rgb(210, 180, 222  );
-    height: 640px;
-    padding: 3rem 6rem;
+    /* height: 640px; */
+    /* padding: 3rem 6rem; */
 
 
 }
 /* user_coginitive_exercises disorders sub section */
 .ol_fontclass{
     font-family: 'Lobster', sans-serif;
-    font-size: 36px;
+    font-size: 30px;
 }
 
 /* user_coginitive_exercises disorders sub section */
@@ -138,8 +136,8 @@ h1{
 /* user_coginitive_exercises issues overcome sub section */
 .gridcard_helplines{
     background-color:rgb(125, 60, 152 );
-    padding: 2rem 6rem;
-    color: white;
+    /* padding: 2rem 6rem; */
+    /* color: white; */
 }
 
 /* user_coginitive_exercises video */

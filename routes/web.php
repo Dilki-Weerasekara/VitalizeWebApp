@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Livewire\CognitiveBehavioralTherapy;
 use App\Livewire\EnchantedForest;
 use App\Livewire\ExploreNature;
 use App\Livewire\ExploreNature2;
@@ -74,8 +75,10 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
      Route::get('/select_lakes', LakesPonds::class)->name("user_select_lakes"); //lake and ponds page
 
      Route::get('/music', MusicRelaxation::class)->name("music"); //music page
+     
      Route::get('/self_help', SelfHelpPrograms::class)->name("self_help"); //self help programs page
-    
+     Route::get('/cognitive_exercises', CognitiveBehavioralTherapy::class)->name("user_cognitive_exercises"); //coginitive behavioural page
+
 
     //group sections
     Route::get('/groups', Groups::class)->name("groups");
