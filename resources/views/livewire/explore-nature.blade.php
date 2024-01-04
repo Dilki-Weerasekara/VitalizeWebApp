@@ -46,7 +46,7 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ route('user_select_rainfall')}}">Rainfall Serenity</a></li>
-                                    <li><a class="dropdown-item" href="/user_select_garden&blossoms">Gardens and Blooms</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user_select_garden&blossoms') }}">Gardens and Blooms</a></li>
                                     <li><a class="dropdown-item" href="/user_select_waterfalls">Waterfalls</a></li>
                                     <li><a class="dropdown-item" href="/user_select_skystars">Sky and Stars</a></li>
                                     <li><a class="dropdown-item" href="/user_select_seaside">Seaside Tranquility</a></li>
@@ -77,7 +77,7 @@
                                             <p class="card-title d-flex justify-content-center">Gardens and Blooms</p>
                                         </div>
                                         <div class="card-footer ">
-                                                <a   class="btn btn-dark col-12"  role="button" href="/user_select_garden&blossoms">Click Here to Explore More...</a>
+                                                <a   class="btn btn-dark col-12"  role="button" href="{{ route('user_select_garden&blossoms') }}">Click Here to Explore More...</a>
                                         </div>
                                         </div>
                                     </div>
