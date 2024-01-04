@@ -9,6 +9,7 @@ use App\Livewire\RainfallSerenity;
 use App\Livewire\SeasideTranquility;
 use App\Livewire\SkyStars;
 use App\Livewire\Waterfalls;
+use App\Livewire\WildlifeAnimals;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
 use App\Livewire\SinglePost;
@@ -66,6 +67,7 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
      Route::get('/select_seaside', SeasideTranquility::class)->name("user_select_seaside");  //Seaside page
      Route::get('/explore_nature2', ExploreNature2::class)->name("nature2");  //nature video section
      Route::get('/select_forest', EnchantedForest::class)->name("user_select_forest"); //Forest page
+     Route::get('/select_animals', WildlifeAnimals::class)->name("user_select_animals"); //WildAnimals page
 
 
     //group sections

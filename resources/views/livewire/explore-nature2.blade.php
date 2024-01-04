@@ -89,7 +89,7 @@
                                         <p class="card-title d-flex justify-content-center">Wildlife and Animals</p>
                                       </div>
                                       <div class="card-footer ">
-                                        <a class="btn btn-dark col-12" role="button" href="/user_select_animals">Click Here to Explore More...</a>
+                                        <a class="btn btn-dark col-12" role="button" href="{{ route('user_select_animals') }}">Click Here to Explore More...</a>
                                       </div>
                                     </div>
                                 </div>
