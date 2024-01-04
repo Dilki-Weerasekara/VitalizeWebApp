@@ -8,12 +8,12 @@
         <a href="#" class=" font-xssss fw-600 text-grey-500 card-body p-0 d-flex align-items-center"><i class="btn-round-sm font-xs text-primary me-2 bg-greylight" style="margin-top: -10px">{!! $icons->getIcon('edit-3') !!}</i>Create Post</a>
     </div>
     <div class="card-body p-0 mt-3 position-relative">
-        <figure class="avatar position-absolute ms-2 mt-1 top-5"><img
+        <figure class="avatar position-absolute ms-2 mt-1 top-5" ><img
             src="{{ auth()->user()->profile ? asset('storage').'/'.auth()->user()->profile : 'images/user-8.png' }}" alt="image"
             class="shadow-sm rounded-circle w30"></figure>
         <textarea wire:model.lazy="content" name="content" required
             class="p-2 h100 bor-0 w-100 rounded-xxl ps-5 font-xssss text-grey-500 fw-500 border-light-md theme-dark-bg"
-            cols="30" rows="10" placeholder="What's on your mind?"></textarea>
+            cols="30" rows="10" placeholder="&#x09;&emsp;What's on your mind?"></textarea>
     </div>
 
     {{-- catch any error in the content using file uploads using laravel livewire component--}}
