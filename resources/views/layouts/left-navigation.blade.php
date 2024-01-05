@@ -36,10 +36,10 @@
                         style="margin-top: -10px">{!! $icons->getIcon('trending-up') !!}</i><span>Motivational</span></a>
                     </li>
 
-                    {{-- <li><a href="user-page.html" class="nav-content-bttn open-font"><i
-                        class=" btn-round-md bg-primary-gradiant me-3"
-                        style="margin-top: -10px">{!! $icons->getIcon('user') !!}</i><span>Author Profile </span></a>
-                    </li> --}}
+                    <li><a href="{{ route('assessment') }}" class="nav-content-bttn open-font"><i
+                        class=" btn-round-md bg-blue-gradiant me-3"
+                        style="margin-top: -10px">{!! $icons->getIcon('user-check') !!}</i><span>Assessment Tools</span></a>
+                    </li>
 
                 </ul>
             </div>

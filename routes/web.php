@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Assesment;
 use App\Livewire\AwarenessPrograms;
 use App\Livewire\CognitiveBehavioralTherapy;
 use App\Livewire\EnchantedForest;
@@ -87,6 +88,8 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
      Route::get('/good_practices', GoodPracticesRelieveStress::class)->name("user_good_practices"); //good practices page
 
      Route::get('/Inspirational_content', InspirationalContent::class)->name("Inspirational_content");  //Inspirational_content page
+
+     Route::get('/assessment', Assesment::class)->name("assessment");  //assessment tool page
 
     //group sections
     Route::get('/groups', Groups::class)->name("groups");
