@@ -65,8 +65,12 @@
                                   </div>
                                   <br>
                                   {{-- start button --}}
-                                  <a href="#" class="btn btn-primary d-flex justify-content-center ">Start the Assessment</a>
-                                </div>
+                                <a href="{{ route('view_google_forum') }}" class="btn btn-primary d-flex justify-content-center ">Start the Assessment Now</a>
+
+                                <br>
+                                {{-- scan the QR code --}}
+                                <a href="{{ route('access_QR') }}" class="btn btn-success d-flex justify-content-center ">Scan QR Code</a>
+                                <br>
                                 {{-- footer --}}
                                 <div class="card-footer text-muted text-end">
                                   contact us : hello@vitalize.com

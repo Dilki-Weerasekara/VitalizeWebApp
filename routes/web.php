@@ -14,9 +14,11 @@ use App\Livewire\LakesPonds;
 use App\Livewire\MindfulnessPractices;
 use App\Livewire\MusicRelaxation;
 use App\Livewire\RainfallSerenity;
+use App\Livewire\ScanQRCode;
 use App\Livewire\SeasideTranquility;
 use App\Livewire\SelfHelpPrograms;
 use App\Livewire\SkyStars;
+use App\Livewire\ViewGoogleForum;
 use App\Livewire\Waterfalls;
 use App\Livewire\WildlifeAnimals;
 use Illuminate\Support\Facades\Route;
@@ -90,6 +92,8 @@ Route::middleware(["auth", "verified", 'VerifiedUser'])->group(function () {
      Route::get('/Inspirational_content', InspirationalContent::class)->name("Inspirational_content");  //Inspirational_content page
 
      Route::get('/assessment', Assesment::class)->name("assessment");  //assessment tool page
+     Route::get('/view_google_forum', ViewGoogleForum::class)->name("view_google_forum");  //view google forum
+     Route::get('/access_QR', ScanQRCode::class)->name("access_QR");  //access the QR code
 
     //group sections
     Route::get('/groups', Groups::class)->name("groups");
