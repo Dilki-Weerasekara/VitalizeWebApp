@@ -65,25 +65,54 @@
                                   </div>
                                   <br>
                                   {{-- start button --}}
-                                <a href="{{ route('view_google_forum') }}" class="btn btn-primary d-flex justify-content-center ">Start the Assessment Now</a>
+                                <a href="{{ route('view_google_forum') }}" id="startButton" class="btn btn-primary d-flex justify-content-center disabled">Start the Assessment Now</a>
 
                                 <br>
                                 {{-- scan the QR code --}}
-                                <a href="{{ route('access_QR') }}" class="btn btn-success d-flex justify-content-center ">Scan QR Code</a>
+                                <a href="{{ route('access_QR') }}" id="qrCodeButton" class="btn btn-success d-flex justify-content-center disabled">Scan QR Code</a>
                                 <br>
                                 {{-- footer --}}
                                 <div class="card-footer text-muted text-end">
                                   contact us : hello@vitalize.com
                                 </div>
-                              </div>
-
+                                </div>
+                            </div>
 
                         </div>
-
-                     </div>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
 </div>
+
+{{-- check the state of the chcek box --}}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var checkBox = document.getElementById('check');
+        var startButton = document.getElementById('startButton');
+        var qrCodeButton = document.getElementById('qrCodeButton');
+
+        // Function to enable or disable buttons
+        function toggleButtonState() {
+            if (checkBox.checked) {
+                startButton.classList.remove('disabled');
+                qrCodeButton.classList.remove('disabled');
+            } else {
+                startButton.classList.add('disabled');
+                qrCodeButton.classList.add('disabled');
+            }
+        }
+
+        // Event listener for checkbox changes
+        checkBox.addEventListener('change', toggleButtonState);
+
+        // Initial check
+        toggleButtonState();
+    });
+</script>
+
+
+
+
