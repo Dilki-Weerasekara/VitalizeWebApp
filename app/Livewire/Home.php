@@ -222,7 +222,7 @@ class Home extends Component
     }
 
 
-    // saved the post
+    // user saved the post their watchlist
     public function save($post_id)
     {
         // Create a new 'SavedPost' record, or retrieve the existing one if it already exists.
@@ -234,7 +234,7 @@ class Home extends Component
 
         // Dispatch a browser event to show a success message.
         // This provides immediate feedback to the user that the item has been saved.
-        
+
         // $this->dispatch('alert', [
         //     'type' => 'success',
         //     'message' => 'Item Saved'
@@ -311,7 +311,7 @@ class Home extends Component
       }
 
       $posts = Post::where("status","published")->latest()->paginate($this->paginate_no);
-
+      
         return view('livewire.home',[
 
             'posts' => $posts,

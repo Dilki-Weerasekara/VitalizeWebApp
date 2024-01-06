@@ -49,9 +49,17 @@
                 <div class="nav-caption fw-600 font-xssss text-grey-500"><span></span> Account</div>
                 <ul class="mb-1">
                     <li class="logo d-none d-xl-block d-lg-block"></li>
+                    {{-- settings facility --}}
                     <li><a href="{{ route('settings') }}" class="h-auto pt-2 pb-2 nav-content-bttn open-font"><i
                                 class="font-sm  me-3 text-grey-500"
                                 style="margin-top: -10px">{!! $icons->getIcon('settings') !!}</i><span>User Settings</span></a></li>
+
+                    {{-- reminder facility --}}
+                    <li><a href="{{ route('reminder') }}" class="h-auto pt-2 pb-2 nav-content-bttn open-font"><i
+                                    class="font-sm  me-3 text-grey-500"
+                                    style="margin-top: -10px">{!! $icons->getIcon('clock') !!}</i><span>Set Reminder</span></a></li>
+
+                    {{-- chat facility --}}
                     <li><a href="{{ url("chat") }}" class="h-auto pt-2 pb-2 nav-content-bttn open-font"><i
                                 class="font-sm -square me-3 text-grey-500"
                                 style="margin-top: -10px">{!! $icons->getIcon('message-circle') !!}</i><span>Chat</span></a></li>

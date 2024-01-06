@@ -20,6 +20,8 @@
                                 {{ $user->first_name . ' ' . $user->last_name }}
                                 <span
                                     class="mt-1 d-block font-xssss fw-500 lh-3 text-grey-500">{{ '@' . $user->username }}</span>
+                                <span
+                                    class="mt-1 d-block font-xssss fw-500 lh-3 text-primary-500">{{ $user->profile_type }}</span>
                             </h4>
                             <div class="pt-0 mt-4 d-flex align-items-center position-absolute left-15 top-10 ms-2">
                                 <h4 class="text-center font-xsssss d-none d-lg-block text-grey-500 fw-600 ms-2 me-2"><b
@@ -302,7 +304,7 @@
                         </div>
 
                     @empty
-                        <h1 class="text-center text-danger">No Post Fund!</h1>
+                        <h1 class="text-center text-danger">No Post Found!</h1>
                     @endforelse
 
 

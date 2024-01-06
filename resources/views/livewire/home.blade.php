@@ -125,7 +125,7 @@
                                     href="{{ route('single-post', ['useruuid' => $post->user->uuid, 'postuuid' => $post->uuid]) }}">
                                     <p class="fw-500 text-grey-500 lh-26 font-xssss w-100">{{ $post->content }}</p>
 
-                                    {{-- view the wallpost as singlePost in aother page --}}
+                                    {{-- view the wallpost as singlePost in another page --}}
                                 </a>
                             </div>
                             <div class="card-body d-block p-0">
@@ -344,29 +344,6 @@
                                 <p class="text-center text-danger">No New Groups Found</p>
                             @endforelse
                         </div>
-
-                    <div class="card w-100 shadow-xss rounded-xxl border-0 mb-3">
-                        <div class="card-body d-flex align-items-center p-4">
-                            <h4 class="fw-700 mb-0 font-xssss text-grey-900">Suggest Pages</h4>
-                            <a href="default-group.html" class="fw-600 ms-auto font-xssss text-primary">See all</a>
-                        </div>
-                        <div class="card-body d-flex pt-4 ps-4 pe-4 pb-0 overflow-hidden border-top-xs bor-0">
-                            <img src="images/g-2.jpg" alt="img" class="img-fluid rounded-xxl mb-2">
-                        </div>
-                        <div class="card-body d-flex align-items-center pt-0 ps-4 pe-4 pb-4">
-                            <a href="#" class="p-2 lh-28 w-100 bg-grey text-grey-800 text-center font-xssss fw-700 rounded-xl"><i class="feather-external-link font-xss me-2"></i> Like Page</a>
-                        </div>
-
-                        <div class="card-body d-flex pt-0 ps-4 pe-4 pb-0 overflow-hidden">
-                            <img src="images/g-3.jpg" alt="img" class="img-fluid rounded-xxl mb-2 bg-lightblue">
-                        </div>
-                        <div class="card-body d-flex align-items-center pt-0 ps-4 pe-4 pb-4">
-                            <a href="#" class="p-2 lh-28 w-100 bg-grey text-grey-800 text-center font-xssss fw-700 rounded-xl"><i class="feather-external-link font-xss me-2"></i> Like Page</a>
-                        </div>
-
-
-                    </div>
-
 
                     <div class="card w-100 shadow-xss rounded-xxl border-0 mb-3">
                         <div class="card-body d-flex align-items-center  p-4">

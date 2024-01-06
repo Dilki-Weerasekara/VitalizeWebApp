@@ -51,7 +51,7 @@ class Kernel extends ConsoleKernel
                     Notification::create([
                         "user_id" => $post->user_id,
                         "type" => "post_status",
-                        "message" => "Your Post his been published",
+                        "message" => "Your Post has been published",
                         "url" => route("single-post", ["useruuid" => $post->user->uuid, "postuuid" => $post->uuid]),
                     ]);
                 }

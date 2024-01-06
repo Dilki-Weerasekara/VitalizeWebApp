@@ -12,7 +12,7 @@
             src="{{ auth()->user()->profile ? asset('storage').'/'.auth()->user()->profile : 'images/user-8.png' }}" alt="image"
             class="shadow-sm rounded-circle w30"></figure>
         <textarea wire:model.lazy="content" name="content" required
-            class="p-2 h100 bor-0 w-100 rounded-xxl ps-5 font-xssss text-grey-500 fw-500 border-light-md theme-dark-bg"
+            class="p-2 h100 bor-0 w-100 rounded-xxl ps-5 font-xssss text-black-500 fw-500 border-light-md theme-dark-bg"
             cols="30" rows="10" placeholder="&#x09;&emsp;What's on your mind?"></textarea>
     </div>
 

@@ -163,9 +163,11 @@ class User extends Component
         // Fetch IDs of all 'published' posts belonging to the user.
         $posts_ids = Post::where(["user_id" => $user->id, "status" => "published"])->pluck("id");
 
+
         if ($this->loader == 1) {
             // If 'loader' is set to 1, retrieve all posts of the user.
             $posts = Post::where("user_id", $user->id)->latest()->get();
+            
 
             // Fetch all post media for these posts where the file type is 'image'.
             $post_media = PostMedia::whereIn("post_id", $posts_ids)->where("file_type", "image")->get();
