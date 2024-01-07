@@ -190,13 +190,13 @@
                                 @if ($like)
                                     <a href="#" wire:click.prevent="dislike({{ $post->id }})"
                                         class=" d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2"><i
-                                            class="text-white me-2 btn-round-xs font-xss"
-                                            style="margin-top: -10px">{!! $icons->getIcon('thumbs-up', ['fill' => 'yellow']) !!}</i>{{ $post->likes ?? 0 }}
+                                            class="text-info me-2 btn-round-xs font-xss"
+                                            style="margin-top: -10px">{!! $icons->getIcon('thumbs-up', ['fill' => 'blue']) !!}</i>{{ $post->likes ?? 0 }}
                                         Like</a>
                                 @else
                                     <a href="#" wire:click.prevent="like({{ $post->id }})"
                                         class=" d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2"><i
-                                            class="text-white me-2 btn-round-xs font-xss"
+                                            class="text-info me-2 btn-round-xs font-xss"
                                             style="margin-top: -10px">{!! $icons->getIcon('thumbs-up') !!}</i>{{ $post->likes ?? 0 }}
                                         Like</a>
                                 @endif
