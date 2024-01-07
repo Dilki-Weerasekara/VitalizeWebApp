@@ -103,7 +103,11 @@ class Group extends Component
         $post_media = PostMedia::whereIn("post_id", $posts_ids)->where("file_type", "image")->get();
 
         // Fetch and paginate posts belonging to the group, ordered by the latest first.
-        $posts = Post::where("group_id", $group->id)->latest()->paginate($this->paginator);
+        $posts = Post::where([
+            "group_id" => $group->id,
+            "status" => "published"
+        ])->latest()->paginate($this->paginator);
+
 
         // Return the 'livewire.group' view with the group data, its posts, and associated images.
         // The view extends the 'layouts.app' layout for consistent application structure.
