@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Str;
+use Twilio\Rest\Client;
 
 class RegisteredUserController extends Controller
 {
@@ -96,6 +97,7 @@ class RegisteredUserController extends Controller
             $client->messages->create(
                 // message sends to this phone number
                 $user->mobile,
+
                 [
                     "from" => env("TWILIO_Number"),
                     // customize message text body from vitalize
