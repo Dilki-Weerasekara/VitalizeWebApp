@@ -26,6 +26,7 @@
                             @forelse ($posts as $post) {{-- Loop through each post in the 'posts' collection --}}
                                 <a
                                     href="{{ route('single-post', ['useruuid' => $post->user->uuid, 'postuuid' => $post->post->uuid]) }}">  {{-- Hyperlink to the single post view with parameters --}}
+                    
                                     <div class="card shadow-xss">
                                         <div class="card-header" id="">
                                             <h5 class="mb-0">

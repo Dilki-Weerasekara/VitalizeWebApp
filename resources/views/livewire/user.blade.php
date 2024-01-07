@@ -183,7 +183,7 @@
                             <div class="p-0 card-body me-lg-5">
                                 <a
                                     href="{{ route('single-post', ['useruuid' => $post->user->uuid, 'postuuid' => $post->uuid]) }}">
-                                    <p class="fw-500 text-grey-500 lh-26 font-xssss w-100">{{ $post->content }}</p>
+                                    <p class="fw-500 text-grey-900 lh-26 font-xssss w-100">{{ $post->content }}</p>
                                 </a>
                             </div>
                             <div class="p-0 card-body d-block">
@@ -298,7 +298,7 @@
                             <form method="POST" wire:submit.prevent="saveComment({{ $post->id }})">
                                 <input type="text" placeholder="write your comments here..." required
                                     name="comment" wire:model.lazy="comment"
-                                    class="p-2 border-0 bg-grey text-grey-500 font-xssss lh-32 fw-600 rounded-3 w-100 theme-dark-bg"
+                                    class="p-2 border-0 bg-grey text-grey-900 font-xssss lh-32 fw-600 rounded-3 w-100 theme-dark-bg"
                                     id="">
                             </form>
                         </div>
