@@ -20,6 +20,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             // Retrieve all posts with 'pending' status.
             $posts = Post::where("status", "pending")->get();
+
             foreach ($posts as $post) {
                 // Make an API call to check for bad words in the post content.
                 $collection = Http::withHeaders([
@@ -27,6 +28,7 @@ class Kernel extends ConsoleKernel
                     "apiKey" => env("BAD_WORDS_API_KEY")
                 ])->post('https://api.apilayer.com/bad_words', [
                     $post->content
+
                 ])->collect();
 
                  // Check if any bad words are detected in the post.
@@ -57,18 +59,23 @@ class Kernel extends ConsoleKernel
                 }
             }
 
+
+
+
             // Repeat the same process for comments.
             $comments = Comment::where("status", "pending")->get();
+
             foreach ($comments as $comment) {
                 $collection = Http::withHeaders([
                     "content-type" => "text/plain",
                     "apiKey" => env("BAD_WORDS_API_KEY")
                 ])->post('https://api.apilayer.com/bad_words', [
-                    $comment->content
+                    $comment->comment
                 ])->collect();
-
+                    
                 if ($collection["bad_words_total"] > 0) {
                     $comment->status = "rejected";
+                    echo "rejected";
                     $comment->save();
                     Notification::create([
                         "user_id" => $comment->user_id,
@@ -78,11 +85,12 @@ class Kernel extends ConsoleKernel
                     ]);
                 } else {
                     $comment->status = "published";
+                    echo "published";
                     $comment->save();
                     Notification::create([
                         "user_id" => $comment->user_id,
                         "type" => "post_status",
-                        "message" => "Your Comment his been published",
+                        "message" => "Your Comment has been published",
                         "url" => route("single-post", ["useruuid" => $comment->user->uuid, "postuuid" => $comment->post->uuid]),
                     ]);
                 }
