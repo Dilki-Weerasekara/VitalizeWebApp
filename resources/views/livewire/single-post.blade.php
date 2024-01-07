@@ -76,7 +76,7 @@
                         <div class="p-0 card-body me-lg-5">
                             <a
                                 href="{{ route('single-post', ['useruuid' => $post->user->uuid, 'postuuid' => $post->uuid]) }}">
-                                <p class="fw-500 text-grey-500 lh-26 font-xssss w-100">{{ $post->content }}</p>
+                                <p class="fw-500 text-grey-900 lh-26 font-xssss w-100">{{ $post->content }}</p>
                             </a>
                         </div>
                         <div class="p-0 card-body d-block">
@@ -174,19 +174,19 @@
                         <form method="POST" wire:submit.prevent="saveComment({{ $post->id }})">
                             <input type="text" placeholder="write your comments here..." required name="comment"
                                 wire:model.lazy="comment"
-                                class="p-2 border-0 bg-grey text-grey-500 font-xssss lh-32 fw-600 rounded-3 w-100 theme-dark-bg"
+                                class="p-2 border-0 bg-grey text-grey-900 font-xssss lh-32 fw-600 rounded-3 w-100 theme-dark-bg"
                                 id="">
                         </form>
                     </div>
 
                     {{-- display all the comments for specific post using loop --}}
                     @foreach ($post->commentss as $comment)
-                        <div class="p-4 mt-3 mb-1  text-center border-0 border-bottom card w-100 shadow-xss rounded-xxl">
+                        <div class="p-4 mt-3 mb-1  text-start border-0 border-bottom card w-100 shadow-xss rounded-xxl">
                             <div class="p-0 card-body d-flex">
                                 <figure class="avatar me-3"><img
                                         src="{{ $comment->user->profile ? asset('storage') . '/' . $comment->user->profile : 'images/user-7.png' }}"
                                         alt="image" class="shadow-sm rounded-circle w45"></figure>
-                                <h4 class="mt-1 fw-700 text-grey-900 font-xssss">{{ $comment->user->username }} <span
+                                <h4 class="mt-1 fw-700 text-grey-500 font-xssss">{{ $comment->user->username }} <span
                                         class="mt-1 d-block font-xssss fw-500 lh-3 text-grey-500">{{ $comment->created_at->diffForHumans() }}</span>
                                 </h4>
                                 <p class="px-2">
