@@ -124,34 +124,18 @@ $icons = new \Feather\IconManager();
 
     @livewireScripts
 
-     {{-- <script>
+
+    {{-- <script>
         window.addEventListener('alert', event => {
-        // console.log('Event type:', event.detail.type); // Add this line for debugging
-        toastr[event.detail.type="info"](event.detail.message="Your Post will be Published Shortly", event.detail.title ?? ''), toastr.options = {
-            "closeButton": true,
-            "progressBar": true,
+            toastr[event.detail.type](event.detail.message,
+                event.detail.title ?? ''), toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
             }
         });
-
     </script> --}}
 
-    @if (session('alert'))
-        <div class="alert alert-{{ session('alert.type') }} alert-dismissible fade show" role="alert">
-            {{ session('alert.message') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
 
-
-    <script>
-        window.onscroll = function(x) {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                window.livewire.emit("load-more")
-            }
-        }
-    </script>
 </body>
 
 </html>
