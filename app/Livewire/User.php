@@ -165,9 +165,12 @@ class User extends Component
 
 
         if ($this->loader == 1) {
-            // If 'loader' is set to 1, retrieve all posts of the user.
-            $posts = Post::where("user_id", $user->id)->latest()->get();
-            
+            // If 'loader' is set to 1, retrieve all posts of the user where stauts is published.
+        
+            $posts = Post::where([
+                "user_id" => $user->id,
+                "status" => "published"
+            ])->latest()->get();
 
             // Fetch all post media for these posts where the file type is 'image'.
             $post_media = PostMedia::whereIn("post_id", $posts_ids)->where("file_type", "image")->get();
@@ -180,6 +183,8 @@ class User extends Component
                 "post_media" => $post_media
             ])->extends("layouts.app");
         } else {
+
+            //this section set to display all the media files in seperate section.
             // If 'loader' is not set to 1, fetch the IDs of all post media belonging to the user's posts.
             $posts_media = PostMedia::whereIn("post_id", $posts_ids)->pluck("post_id");
 
