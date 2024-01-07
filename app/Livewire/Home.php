@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\DB;
 
 class Home extends Component
 {
-    public $paginate_no = 9;
+    public $paginate_no = 35;
     public $comment;
     public $hide_user_list = [];
 
@@ -311,7 +311,7 @@ class Home extends Component
       }
 
       $posts = Post::where("status","published")->latest()->paginate($this->paginate_no);
-      
+
         return view('livewire.home',[
 
             'posts' => $posts,
