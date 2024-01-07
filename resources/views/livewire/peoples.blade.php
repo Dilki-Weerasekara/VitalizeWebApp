@@ -64,7 +64,7 @@
                                                 FRIEND</button>
                                         @elseif ($user->is_friend() == 'accepted')
                                             <button
-                                                class="pt-2 pb-2 mt-0 text-white btn ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-secondary font-xsssss fw-700 ls-lg">FRIEND</button>
+                                                class="pt-2 pb-2 mt-0 text-white btn ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-danger font-xsssss fw-700 ls-lg">FRIEND</button>
                                         @else
                                             <button wire:click="addfriend('{{ $user->uuid }}')"
                                                 class="pt-2 pb-2 mt-0 text-white btn ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-success font-xsssss fw-700 ls-lg">ADD
