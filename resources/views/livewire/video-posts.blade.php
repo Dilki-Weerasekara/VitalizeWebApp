@@ -80,7 +80,7 @@
                             </div>
                             <div class="p-0 card-body me-lg-5">
                                 <a href="{{ route("single-post",["useruuid"=>$post->user->uuid,"postuuid"=>$post->uuid]) }}">
-                                <p class="fw-500 text-grey-500 lh-26 font-xssss w-100">{{ $post->content }}</p>
+                                <p class="fw-500 text-grey-900 lh-26 font-xssss w-100">{{ $post->content }}</p>
                             </a>
                             </div>
                             <div class="p-0 card-body d-block">
@@ -168,7 +168,7 @@
                         </div>
 
                     @empty
-                        <h1 class="text-center text-danger">No Post Fund!</h1>
+                        <h1 class="text-center text-danger">No Post Found!</h1>
                     @endforelse
 
 
