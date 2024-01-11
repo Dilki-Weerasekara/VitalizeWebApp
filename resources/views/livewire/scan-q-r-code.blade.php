@@ -42,8 +42,8 @@
                         {{-- Include the QR image --}}
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-xs-12">
-                                        <img src="{{ URL('images/QRcode.png') }}" alt="ScanQR_image" class="img-fluid">
+                                    <div class="col-xs-12 d-flex justify-content-center">
+                                        <img src="{{ URL('images/QRcode.png') }}" alt="ScanQR_image" class="img-fluid"  style="width:500px;height:500px">
                                     </div>
                                 </div>
                             </div>
