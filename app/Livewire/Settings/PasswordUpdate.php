@@ -50,8 +50,8 @@ class PasswordUpdate extends Component
                 ]);
 
                   // Dispatch a success message to the browser.
-                $this->dispatch('alert', [
-                    "type" => "success", "message" =>  "Your Password his been updated.."
+                $this->dispatch('alert-pw-update', [
+                    // "type" => "success", "message" =>  "Your Password his been updated.."
                 ]);
                 unset($this->existing_password);
                 unset($this->password);
@@ -65,8 +65,8 @@ class PasswordUpdate extends Component
             }
         } else {
             // Dispatch an error message if the existing password doesn't match.
-            return $this->dispatchBrowserEvent('alert', [
-                "type" => "success", "message" =>  "Incorrect Existing Password"
+            return $this->dispatch('alert-pw-update-incorrect', [
+                // "type" => "success", "message" =>  "Incorrect Existing Password"
             ]);
         }
     }

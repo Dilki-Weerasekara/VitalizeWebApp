@@ -54,6 +54,10 @@ class Home extends Component
             throw $th;
         }
         unset($this->comment);   //destroy the comment after submit
+         // alert message to the user
+
+         $this->dispatch('alert-publish-comment', []);
+
     }
 
 
@@ -137,9 +141,9 @@ class Home extends Component
         // Dispatch a browser event to notify the current user that the friend request
         // has been successfully accepted. This is for immediate feedback on the user interface.
 
-        // $this->dispatchBrowserEvent('alert', [
-        //     "type" => "success", "message" => "friend request accepted"
-        // ]);
+        $this->dispatch('alert-friend-accept', [
+            // "type" => "success", "message" => "Friend request accepted Successfully"
+        ]);
     }
 
 
@@ -182,9 +186,9 @@ class Home extends Component
         // Dispatch a browser event to notify the current user that the friend request
         // has been successfully rejected. This provides immediate feedback on the user interface.
 
-        // $this->dispatchBrowserEvent('alert', [
-        //     "type" => "success", "message" => "friend request rejected"
-        // ]);
+        $this->dispatch('alert-friend-reject', [
+            // "type" => "warning", "message" => "Friend request rejected"
+        ]);
     }
 
 
@@ -209,9 +213,9 @@ class Home extends Component
                 "url" => "#",
             ]);
 
-            // $this->dispatchBrowserEvent('alert', [
-            //     "type" => "success", "message" =>  " you joined " . $group->name
-            // ]);
+            $this->dispatch('alert-group-join', [
+                // "type" => "success", "message" =>  " you joined " . $group->name
+            ]);
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
@@ -235,10 +239,10 @@ class Home extends Component
         // Dispatch a browser event to show a success message.
         // This provides immediate feedback to the user that the item has been saved.
 
-        // $this->dispatch('alert', [
-        //     'type' => 'success',
-        //     'message' => 'Item Saved'
-        // ]);
+        $this->dispatch('alert-saved-post', [
+            // 'type' => 'success',
+            // 'message' => 'Item Saved'
+        ]);
 
     }
 

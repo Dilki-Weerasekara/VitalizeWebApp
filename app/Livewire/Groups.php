@@ -41,9 +41,9 @@ class Groups extends Component
                 "url" => "#",
             ]);
 
-            // $this->dispatchBrowserEvent('alert', [
-            //     "type" => "success", "message" =>  " you joined " . $group->name
-            // ]);
+            $this->dispatch('alert-group-join', [
+                // "type" => "success", "message" =>  " you joined " . $group->name
+            ]);
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
@@ -64,9 +64,9 @@ class Groups extends Component
             $group->save();
             $member->delete();
 
-            // $this->dispatchBrowserEvent('alert', [
-            //     "type" => "success", "message" =>  " you left " . $group->name
-            // ]);
+            $this->dispatch('alert-group-left', [
+                // "type" => "success", "message" =>  " you left " . $group->name
+            ]);
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();

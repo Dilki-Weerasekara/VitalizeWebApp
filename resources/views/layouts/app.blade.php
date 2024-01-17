@@ -33,6 +33,40 @@ $icons = new \Feather\IconManager();
     {{-- Link boostrap css --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
+     <!-- Custom toastr styling to override Bootstrap -->
+     <style>
+
+        .toast {
+            z-index: 9999 !important; /* Adjust z-index as needed */
+        }
+
+        /* Increase specificity for toastr container */
+        body .toast-container .toast {
+            /* Custom toastr styles here, use !important if necessary */
+            opacity: 1 !important;
+            display: block !important; /* May need to adjust display property */
+        }
+
+        /* Specific toastr classes, like toast-success, toast-error, etc. */
+        .toast-success {
+            background-color: green !important;
+            color: white !important;
+        }
+
+        .toast-info{
+            background-color: black !important;
+            color: white !important;
+        }
+
+        .toast-warning{
+            background-color: red !important;
+            color: white !important;
+        }
+
+
+
+    </style>
+
     {{-- Link Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -125,16 +159,131 @@ $icons = new \Feather\IconManager();
     @livewireScripts
 
 
-    {{-- <script>
-        window.addEventListener('alert', event => {
-            toastr[event.detail.type](event.detail.message,
+    <script>
+        // create post alert
+        window.addEventListener('alert-create-post', event => {
+            toastr[event.detail.type="info"](event.detail.message="Your post will be published shortly.",
                 event.detail.title ?? ''), toastr.options = {
                 "closeButton": true,
                 "progressBar": true,
             }
         });
-    </script> --}}
 
+        //Account information update alert
+        window.addEventListener('alert-update-acc', event => {
+            toastr[event.detail.type="success"](event.detail.message= " Account Informaiton Updated successfully.",
+                event.detail.title ?? ''), toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+
+            }
+        });
+
+        //Password Update Incorrect alert
+        window.addEventListener('alert-pw-update-incorrect', event => {
+            toastr[event.detail.type="warning"](event.detail.message= "Existing Password is Incorrect",
+                event.detail.title ?? ''), toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+
+            }
+        });
+
+         //Password Update alert
+         window.addEventListener('alert-pw-update', event => {
+            toastr[event.detail.type="success"](event.detail.message= "Your Password has been updated",
+                event.detail.title ?? ''), toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+
+            }
+        });
+
+        //left the group
+        window.addEventListener('alert-group-left', event => {
+            toastr[event.detail.type="info"](event.detail.message=  "You left the Group",
+                event.detail.title ?? ''), toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+
+            }
+        });
+
+         //join the group
+         window.addEventListener('alert-group-join', event => {
+            toastr[event.detail.type="success"](event.detail.message=  "You Join the Group",
+                event.detail.title ?? ''), toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+
+            }
+        });
+
+
+         //save the post
+         window.addEventListener('alert-saved-post', event => {
+            toastr[event.detail.type="success"](event.detail.message=  "Post Saved Successfully",
+                event.detail.title ?? ''), toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+
+            }
+        });
+
+
+         //friend request acceptance information
+         window.addEventListener('alert-friend-accept', event => {
+            toastr[event.detail.type="success"](event.detail.message=  "Friend request accepted ",
+                event.detail.title ?? ''), toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+
+            }
+        });
+
+
+         //friend request rejected
+         window.addEventListener('alert-friend-reject', event => {
+            toastr[event.detail.type="warning"](event.detail.message=  "Friend request Rejected",
+                event.detail.title ?? ''), toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+
+            }
+        });
+
+          //friend request sent
+          window.addEventListener('alert-friend-sent', event => {
+            toastr[event.detail.type="success"](event.detail.message=  "You sent a friend Request",
+                event.detail.title ?? ''), toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+
+            }
+        });
+
+          //friend request sent cansel
+          window.addEventListener('alert-friend-request-sent-cansel', event => {
+            toastr[event.detail.type="warning"](event.detail.message=  "You cansel the friend Request",
+                event.detail.title ?? ''), toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+
+            }
+        });
+
+         //publish the comment
+         window.addEventListener('alert-publish-comment', event => {
+            toastr[event.detail.type="info"](event.detail.message=  "Your comment will be published shortly.",
+                event.detail.title ?? ''), toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+
+            }
+        });
+
+
+    </script>
 
 </body>
 

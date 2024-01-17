@@ -59,8 +59,8 @@ class User extends Component
             DB::rollBack();
             throw $th;
         }
-        $this->dispatchBrowserEvent('alert', [
-            "type" => "success", "message" => "friend request send to " . $user->username
+        $this->dispatch('alert-friend-sent', [
+            // "type" => "success", "message" => "friend request send to " . $user->username
         ]);
     }
 
@@ -83,8 +83,8 @@ class User extends Component
             DB::rollBack();
             throw $th;
         }
-        $this->dispatchBrowserEvent('alert', [
-            "type" => "success", "message" => "friend request canceled from " . ModelsUser::find($temp)->username
+        $this->dispatch('alert-friend-request-sent-cansel', [
+            // "type" => "success", "message" => "friend request canceled from " . ModelsUser::find($temp)->username
         ]);
     }
 
@@ -166,7 +166,7 @@ class User extends Component
 
         if ($this->loader == 1) {
             // If 'loader' is set to 1, retrieve all posts of the user where stauts is published.
-        
+
             $posts = Post::where([
                 "user_id" => $user->id,
                 "status" => "published"

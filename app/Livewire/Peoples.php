@@ -49,8 +49,8 @@ class Peoples extends Component
             DB::rollBack();
             throw $th;
         }
-        $this->dispatch('alert', [
-            "type" => "success", "message" =>  "  friend request accepted "
+        $this->dispatch('alert-friend-accept', [
+            // "type" => "success", "message" =>  "  friend request accepted "
         ]);
     }
 
@@ -77,8 +77,8 @@ class Peoples extends Component
             DB::rollBack();
             throw $th;
         }
-        $this->dispatch('alert', [
-            "type" => "success", "message" => "friend request send to " . $user->username
+        $this->dispatch('alert-friend-sent', [
+            // "type" => "success", "message" => "friend request send to " . $user->username
             // Set the message to be displayed in the alert. This message includes the username of the user to whom the friend request was sent.
 
         ]);
@@ -104,8 +104,8 @@ class Peoples extends Component
             DB::rollBack();
             throw $th;
         }
-        $this->dispatch('alert', [
-            "type" => "success", "message" => "friend request canceled from " . $user->username
+        $this->dispatch('alert-friend-request-sent-cansel', [
+            // "type" => "success", "message" => "friend request canceled from " . $user->username
         ]);
     }
 

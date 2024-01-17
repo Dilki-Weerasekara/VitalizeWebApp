@@ -98,19 +98,7 @@ class CreatePost extends Component
 
         // alert message to the user
 
-        //  $this->dispatchBrowserEvent('alert', [
-        //      'type' => 'success',
-        //       'message' => 'Your post will be published shortly.'
-        //  ]);
-
-
-         session()->flash('alert', [
-            'type' => 'success',
-            'message' => 'Your action was successful!'
-        ]);
-
-       
-
+         $this->dispatch('alert-create-post', []);
     }
 
 }

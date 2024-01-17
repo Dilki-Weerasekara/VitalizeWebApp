@@ -63,8 +63,8 @@ class AccountInformation extends Component
         $user->save();
 
            // Dispatch a browser event to show a success message after updating.
-        $this->dispatch('alert', [
-            "type" => "success", "message" =>  " Account Informaiton Updated successfully."
+        $this->dispatch('alert-update-acc', [
+            // "type" => "success", "message" =>  " Account Informaiton Updated successfully."
         ]);
          // Redirect to the account information settings page.
         return redirect()->route("settings");
